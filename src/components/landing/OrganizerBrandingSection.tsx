@@ -15,8 +15,8 @@ export default function OrganizerBrandingSection() {
           {/* Official Logo Container - Preserving existing logo */}
           <div className="relative shrink-0">
             <img
-              src="/scrs-logo.png"
-              alt="SCRS Crest"
+              src="/association-logo.jpeg"
+              alt="Association Crest"
               className="w-24 h-24 sm:w-32 md:w-36 sm:h-32 md:h-36 rounded-full object-contain filter drop-shadow-[0_0_24px_rgba(124,92,255,0.3)] ring-2 ring-[#7C5CFF]/40 bg-[#080C12]"
             />
             <span className="absolute bottom-1 right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-emerald-400 border-2 border-[#0D131C]" />

@@ -120,8 +120,8 @@ export default function CertificatePage() {
             <div className="flex items-center justify-center gap-4">
               <div className="w-14 h-14 rounded-2xl bg-cyber-surface border-2 border-cyber-primary p-2 flex items-center justify-center shadow-cyber-glow-sm">
                 <img
-                  src="/scrs-logo.png"
-                  alt="SCRS Logo"
+                  src="/association-logo.jpeg"
+                  alt="Association Logo"
                   className="w-full h-full object-contain"
                 />
               </div>

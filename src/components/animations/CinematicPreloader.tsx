@@ -168,7 +168,7 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
               className="mb-8 flex flex-col items-center"
             >
               <div className="w-24 h-24 bg-cyber-bg/90 border border-cyber-primary/40 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(124,92,255,0.3)] overflow-hidden p-1">
-                <img src="/scrs-logo.png" alt="SCRS Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(124,92,255,0.5)]" />
+                <img src="/association-logo.jpeg" alt="Association Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(124,92,255,0.5)]" />
               </div>
             </motion.div>
 

@@ -30,8 +30,8 @@ export function BrandLogo({
       {/* Real Circular Logo with Natural AI Purple / Cyan Ring - Retained Untouched */}
       <div className="relative shrink-0">
         <img
-          src="/scrs-logo.png"
-          alt="SCRS Crest"
+          src="/association-logo.jpeg"
+          alt="Association Crest"
           className={cn(
             'rounded-full object-contain transition-all duration-300 group-hover:scale-105 filter drop-shadow-[0_0_12px_rgba(124,92,255,0.4)] ring-1 ring-[#7C5CFF]/50 group-hover:ring-[#7C5CFF]',
             current.img
