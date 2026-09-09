@@ -1,47 +1,50 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Shield, Sparkles, Building2, ExternalLink } from 'lucide-react';
-import { BrandLogo } from '@/components/ui/BrandLogo';
+import { Sparkles, Building2, GraduationCap, Award } from 'lucide-react';
 
 export default function OrganizerBrandingSection() {
   return (
-    <section id="organizers" className="py-16 sm:py-24 relative bg-cyber-bg-elevated/40 border-t border-cyber-border">
+    <section id="organizers" className="py-20 sm:py-28 relative bg-[#080C12] border-t border-[#1B2835]">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto cyber-glass-glow rounded-3xl p-8 sm:p-12 border-2 border-cyber-primary/40 flex flex-col md:flex-row items-center gap-8 font-mono shadow-cyber-card">
-          {/* Official Logo Container - Circular Emblem */}
+        <div className="max-w-4xl mx-auto rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 bg-[#0D131C] border border-[#1B2835] flex flex-col md:flex-row items-center gap-6 sm:gap-8 shadow-2xl relative overflow-hidden">
+          {/* Subtle Ambient Radial */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#7C5CFF]/5 blur-3xl pointer-events-none rounded-full" />
+
+          {/* Official Logo Container - Preserving existing logo */}
           <div className="relative shrink-0">
             <img
               src="/scrs-logo.png"
-              alt="SCRS Official Logo"
-              className="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-contain filter drop-shadow-[0_0_20px_rgba(0,229,255,0.6)] ring-2 ring-cyber-primary/60"
+              alt="SCRS Crest"
+              className="w-24 h-24 sm:w-32 md:w-36 sm:h-32 md:h-36 rounded-full object-contain filter drop-shadow-[0_0_24px_rgba(124,92,255,0.3)] ring-2 ring-[#7C5CFF]/40 bg-[#080C12]"
             />
-            <span className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-400 border-4 border-cyber-bg animate-pulse" />
+            <span className="absolute bottom-1 right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-emerald-400 border-2 border-[#0D131C]" />
           </div>
 
           {/* Organizer Information */}
-          <div className="space-y-3 text-center md:text-left flex-1">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyber-primary/40 text-cyber-primary text-xs">
-              <Shield className="w-3.5 h-3.5" />
-              <span>// 13. ORGANIZING SOCIETY // SCRS</span>
+          <div className="space-y-3.5 text-center md:text-left flex-1 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#7C5CFF]/10 border border-[#7C5CFF]/30 text-[#A78BFA] text-xs font-medium">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Academic & Alumni Initiative</span>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-bold text-cyber-text">
-              SOFT COMPUTING RESEARCH SOCIETY (SCRS)
+            <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
+              Kalasalingam Academy of Research and Education
             </h3>
 
-            <p className="text-xs text-cyber-text-muted font-sans leading-relaxed">
-              SCRS (Soft Computing Research Society) is a student-led technical society dedicated to advancing practical knowledge in cybersecurity, SOC operations, ethical hacking, digital forensics, and emerging computing technologies across the university.
+            <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+              Presented in joint association by <span className="text-white font-medium">AKCE-KLU-KARE Alumni</span>, the <span className="text-white font-medium">School of Computing</span>, and the <span className="text-white font-medium">Soft Computing Research Society (SCRS)</span> to empower university students with modern applied AI engineering and foundational data capabilities.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2 text-[11px] text-cyber-text-dim">
-              <span className="flex items-center gap-1.5 text-cyber-text">
-                <Building2 className="w-3.5 h-3.5 text-cyber-primary" /> Dept. of Computer Science & Engineering
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2 text-xs text-slate-400 font-sans">
+              <span className="flex items-center gap-1.5 text-slate-300">
+                <GraduationCap className="w-4 h-4 text-[#38BDF8]" /> School of Computing
               </span>
-              <span>•</span>
-              <span className="text-cyber-secondary font-bold">Cybersecurity & SOC Training</span>
+              <span className="text-slate-600 hidden sm:inline">•</span>
+              <span className="flex items-center gap-1.5 text-slate-300">
+                <Award className="w-4 h-4 text-[#C9A45A]" /> AKCE-KLU-KARE Alumni Network
+              </span>
             </div>
           </div>
         </div>
@@ -49,3 +52,4 @@ export default function OrganizerBrandingSection() {
     </section>
   );
 }
+

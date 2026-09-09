@@ -2,70 +2,70 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Cpu, Activity, Binary, Terminal, Lock } from 'lucide-react';
+import { Sparkles, Database, Code2, LineChart, Terminal } from 'lucide-react';
 
 const modules = [
   {
-    day: 'DAY 1 // SENSE & DETECT',
-    icon: Activity,
-    title: 'SIEM Architecture & Telemetry Pipeline',
+    day: 'DAY 1 // MORNING',
+    icon: Sparkles,
+    title: 'Generative AI Foundations & Architecture',
     topics: [
-      'Enterprise SIEM architecture (Splunk / Elastic Security)',
-      'Windows Event Logs & Sysmon Deep Inspection',
-      'MITRE ATT&CK Framework TTP Mapping',
-      'Real-time Correlation Rule Engineering',
+      'Evolution of LLMs and core transformer mechanics',
+      'Prompt structuring, few-shot prompting & system instruction design',
+      'Context windows, tokens, temperature, and hallucination reduction',
+      'Hands-on prompt laboratory with multi-modal AI systems',
     ],
   },
   {
-    day: 'DAY 1 // PACKET FORENSICS',
-    icon: Binary,
-    title: 'Network Anomaly & C2 Beacon Hunting',
+    day: 'DAY 1 // AFTERNOON',
+    icon: Code2,
+    title: 'Hands-on AI Application Development',
     topics: [
-      'Deep Packet Inspection with Wireshark & Zeek',
-      'Detecting DNS Tunneling & Covert Exfiltration',
-      'TLS Fingerprinting & Malicious JA3 Signatures',
-      'Reconstructing Lateral Movement in PCAP streams',
+      'Building automated AI workflows with API integrations',
+      'Zero-code to code: translating business logic to working prototypes',
+      'Developing personalized assistants and intelligent productivity tools',
+      'Deployment walkthrough: launching your first AI utility',
     ],
   },
   {
-    day: 'DAY 2 // THREAT HUNTING',
-    icon: Cpu,
-    title: 'Memory Forensics & EDR Incident Triage',
+    day: 'DAY 2 // MORNING',
+    icon: Database,
+    title: 'SQL Fundamentals & Relational Querying',
     topics: [
-      'Volatility 3 Framework live memory analysis',
-      'Detecting Process Hollowing & DLL Injection',
-      'Extracting C2 IP artifacts and decrypting config payloads',
-      'Live Endpoint Triage with Velociraptor',
+      'Relational database architecture & schema navigation',
+      'Mastering SELECT, WHERE, GROUP BY, and Aggregations',
+      'Advanced multi-table INNER, LEFT, and RIGHT JOINs',
+      'Writing analytical queries on industry transaction datasets',
     ],
   },
   {
-    day: 'DAY 2 // CYBER WAR ROOM',
-    icon: Shield,
-    title: 'Live Enterprise Ransomware Range Attack',
+    day: 'DAY 2 // AFTERNOON',
+    icon: LineChart,
+    title: 'Data Analytics, Insights & Career Pathways',
     topics: [
-      'Multi-stage ransomware adversary containment',
-      'Isolating infected hosts & stopping domain replication',
-      'Generating IOC bulletins & SOC incident timeline reports',
-      'Executive debriefing & remediation strategy',
+      'Transforming raw database records into strategic business metrics',
+      'Interactive dashboards & visual narrative generation',
+      'The modern data tech stack: Roles, roadmaps & compensation tiers',
+      'Portfolio strategy: Showcasing projects that hire',
     ],
   },
 ];
 
 export default function CurriculumSection() {
   return (
-    <section id="curriculum" className="py-16 sm:py-24 relative bg-cyber-bg-elevated/40">
+    <section id="curriculum" className="py-20 sm:py-28 relative bg-[#080C12]">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-primary/10 border border-cyber-primary/30 text-cyber-primary text-xs font-mono">
-            <Terminal className="w-3.5 h-3.5" />
-            <span>HANDS-ON SOC LABS</span>
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#7C5CFF]/10 border border-[#7C5CFF]/30 text-[#A78BFA] text-xs font-medium">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Academic Curriculum</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-mono text-cyber-text">
-            OPERATIONAL BOOTCAMP CURRICULUM
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
+            Workshop Curriculum
           </h2>
-          <p className="text-sm sm:text-base text-cyber-text-muted">
-            Battle-tested technical modules designed to bridge academic theory with tier-1 enterprise SOC analyst capabilities.
+          <p className="text-sm sm:text-base text-slate-400 font-sans">
+            A step-by-step pathway from generative AI fundamentals and app building to relational SQL querying and data analytics.
           </p>
         </div>
 
@@ -77,25 +77,25 @@ export default function CurriculumSection() {
               <motion.div
                 key={idx}
                 whileHover={{ y: -3 }}
-                className="p-6 rounded-xl cyber-glass border border-cyber-border hover:border-cyber-primary/50 transition-all duration-300 space-y-4"
+                className="p-8 rounded-3xl bg-[#0D131C] border border-[#1B2835] hover:border-[#7C5CFF]/40 transition-all duration-300 space-y-5 shadow-lg"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-cyber-primary tracking-wider">
+                  <span className="text-xs font-mono font-semibold text-[#38BDF8] tracking-wider">
                     {mod.day}
                   </span>
-                  <div className="p-2 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-primary">
+                  <div className="p-2.5 rounded-xl bg-[#111923] border border-[#1B2835] text-[#A78BFA]">
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold font-mono text-cyber-text">
+                <h3 className="text-xl font-serif font-bold text-white tracking-tight">
                   {mod.title}
                 </h3>
 
-                <ul className="space-y-2 text-xs font-mono text-cyber-text-muted">
+                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400 font-sans">
                   {mod.topics.map((t, tidx) => (
-                    <li key={tidx} className="flex items-start gap-2">
-                      <span className="text-cyber-primary mt-0.5">›</span>
+                    <li key={tidx} className="flex items-start gap-2.5">
+                      <span className="text-[#38BDF8] mt-1">›</span>
                       <span>{t}</span>
                     </li>
                   ))}
@@ -108,3 +108,4 @@ export default function CurriculumSection() {
     </section>
   );
 }
+

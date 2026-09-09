@@ -3,17 +3,17 @@ import { eventSettings, users, schedules, announcements } from './schema';
 import { eq } from 'drizzle-orm';
 
 export async function seedDatabase() {
-  console.log('--- Seeding NEXTGEN SOC Database ---');
+  console.log('--- Seeding Prompt to Pro Database ---');
 
   // 1. Seed Event Settings if not present
   const existingSettings = await db.select().from(eventSettings).limit(1);
   if (existingSettings.length === 0) {
     await db.insert(eventSettings).values({
       id: 'settings_default',
-      eventName: 'NEXTGEN SOC',
-      tagline: 'Detect. Defend. Respond.',
-      dates: 'August 29 – 30, 2026',
-      venue: 'Main Cyber Range Auditorium & SOC Lab 4',
+      eventName: 'Prompt to Pro',
+      tagline: 'Learn. Build. Grow.',
+      dates: 'October 3 – 4, 2026',
+      venue: '9th Block Seminar Hall',
       registrationFeeUe: 300,
       registrationFeeOther: 450,
       totalCapacity: 500,
@@ -23,7 +23,7 @@ export async function seedDatabase() {
       paymentUpiId: 'nextgensoc.dept@upi',
       paymentQrUrl: '/assets/soc_upi_qr.png',
       contactPhone: '+91 98765 43210',
-      contactEmail: 'soc-support@nextgensoc.io',
+      contactEmail: 'prompttopro@klu.ac.in',
       termsVersion: 'v1.0',
     });
     console.log('✓ Default Event Settings seeded');
@@ -37,14 +37,14 @@ export async function seedDatabase() {
       id: 'usr_admin_master',
       googleId: 'google_admin_master',
       email: adminEmail,
-      name: 'SOC Lead Commander',
+      name: 'Workshop Lead Admin',
       profileImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
       role: 'admin',
     });
     console.log('✓ Master Admin user seeded');
   }
 
-  // 3. Seed Default 2-Day SOC Bootcamp Schedule
+  // 3. Seed Default 2-Day Workshop Schedule
   const existingSchedules = await db.select().from(schedules).limit(1);
   if (existingSchedules.length === 0) {
     await db.insert(schedules).values([
@@ -53,9 +53,9 @@ export async function seedDatabase() {
         day: 1,
         startTime: '09:00 AM',
         endTime: '10:30 AM',
-        title: 'SOC Fundamentals & Cyber Threat Landscape',
-        description: 'Evolution of SOC operations, SIEM architectures, MITRE ATT&CK framework mapping, and modern adversary tactics.',
-        speaker: 'Dr. Evelyn Vance (Chief Information Security Officer)',
+        title: 'Foundations of Generative AI & Large Language Models',
+        description: 'Overview of modern AI models, transformer architectures, token mechanics, and the transition to prompt-driven development.',
+        speaker: 'AI & Data Lead Instructor',
         orderIndex: 1,
       },
       {
@@ -63,9 +63,9 @@ export async function seedDatabase() {
         day: 1,
         startTime: '10:45 AM',
         endTime: '01:00 PM',
-        title: 'Hands-on SIEM Telemetry & Log Ingestion Lab',
-        description: 'Configuring syslog forwarding, Windows Event Forwarding, parsing Sysmon telemetry, and building real-time alert rules.',
-        speaker: 'Marcus Thorne (Lead Security Architect)',
+        title: 'Prompt Engineering & System Prompt Architecture',
+        description: 'Advanced few-shot prompting, chain-of-thought workflows, structured outputs, and prompt chaining.',
+        speaker: 'Marcus Thorne (Senior AI Architect)',
         orderIndex: 2,
       },
       {
@@ -73,9 +73,9 @@ export async function seedDatabase() {
         day: 1,
         startTime: '02:00 PM',
         endTime: '05:00 PM',
-        title: 'Live Network Anomaly Detection & Packet Analysis',
-        description: 'Wireshark deep packet inspection, Zeek network telemetry, detecting C2 beacons, DNS exfiltration, and lateral movement.',
-        speaker: 'Sarah Jenkins (Senior DFIR Specialist)',
+        title: 'Building Real-World GenAI Applications & Tool Integration',
+        description: 'Hands-on live deployment of an AI-powered assistant with API integration, prompt orchestration, and output validation.',
+        speaker: 'Sarah Jenkins (AI Application Engineer)',
         orderIndex: 3,
       },
       {
@@ -83,9 +83,9 @@ export async function seedDatabase() {
         day: 2,
         startTime: '09:00 AM',
         endTime: '12:30 PM',
-        title: 'EDR Forensics & Memory Threat Hunting',
-        description: 'Memory analysis with Volatility, live process triage, process injection detection, and reverse engineering malicious payloads.',
-        speaker: 'Alex Rivera (Malware Analyst & Reverse Engineer)',
+        title: 'Modern Data Analytics, SQL & Relational Databases',
+        description: 'Mastering SQL queries, database indexing, joins, aggregation, and data preparation for enterprise data analysis.',
+        speaker: 'Alex Rivera (Staff Data Engineer)',
         orderIndex: 4,
       },
       {
@@ -93,9 +93,9 @@ export async function seedDatabase() {
         day: 2,
         startTime: '01:30 PM',
         endTime: '04:30 PM',
-        title: 'Simulated SOC War Room: Live Cyber Attack Range',
-        description: 'Full-scale simulated enterprise ransomware incident. Teams investigate alerts, contain threats, and present triage reports.',
-        speaker: 'SOC Range Operations Team',
+        title: 'Data Pipelines, BI Dashboarding & AI Data Workflows',
+        description: 'Building end-to-end data pipelines, connecting AI models to analytics dashboards, and translating insights to decisions.',
+        speaker: 'Prompt to Pro Operations Team',
         orderIndex: 5,
       },
       {
@@ -103,13 +103,13 @@ export async function seedDatabase() {
         day: 2,
         startTime: '04:30 PM',
         endTime: '05:30 PM',
-        title: 'Debrief, Certification & SOC Career Pathways',
-        description: 'Analysis of range performance, tier-1/tier-2 SOC analyst job readiness, and certificate award ceremony.',
+        title: 'Career Roadmaps, Portfolio Building & Certification Award',
+        description: 'High-growth career tracks in GenAI & Data, portfolio project recommendations, and official certificate distribution.',
         speaker: 'Organizing Committee',
         orderIndex: 6,
       },
     ]);
-    console.log('✓ 2-Day SOC Bootcamp Schedule seeded');
+    console.log('✓ 2-Day Workshop Schedule seeded');
   }
 
   // 4. Seed Welcome Announcement
@@ -117,7 +117,7 @@ export async function seedDatabase() {
   if (existingAnnouncements.length === 0) {
     await db.insert(announcements).values({
       id: 'ann_welcome',
-      title: 'Welcome to NEXTGEN SOC Analyst Bootcamp 2026',
+      title: 'Welcome to Prompt to Pro Workshop 2026',
       content: 'Registration is officially live! Please complete your academic details, submit your UPI fee receipt with UTR, and check your participant portal for real-time verification updates.',
       priority: 'important',
       audience: 'all',

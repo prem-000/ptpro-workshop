@@ -105,10 +105,10 @@ export default function AdminRegistrationsPage() {
         <div>
           <h1 className="text-2xl font-bold text-cyber-text tracking-wide flex items-center gap-2">
             <Users className="w-6 h-6 text-cyber-primary" />
-            <span>CADET ROSTER & REGISTRATIONS</span>
+            <span>PARTICIPANT ROSTER & REGISTRATIONS</span>
           </h1>
           <p className="text-xs text-cyber-text-muted mt-1">
-            TOTAL ENROLLED: {registrations.length} CADETS
+            TOTAL ENROLLED: {registrations.length} PARTICIPANTS
           </p>
         </div>
 
@@ -147,9 +147,9 @@ export default function AdminRegistrationsPage() {
           onChange={(e) => setCreditFilter(e.target.value)}
           className="px-3 py-2 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text focus:outline-none focus:border-cyber-primary"
         >
-          <option value="ALL">All Tracks</option>
-          <option value="UE_CSE">PE — CSE</option>
-          <option value="PEOPLE_OTHER">PEOPLE — Other (₹450)</option>
+          <option value="ALL">All Participants</option>
+          <option value="UE_CSE">Non-CGPA Group 3 (CSE)</option>
+          <option value="PEOPLE_OTHER">Non-CGPA Group 3 (Other)</option>
         </select>
 
         {/* Payment Status Filter */}
@@ -173,10 +173,10 @@ export default function AdminRegistrationsPage() {
             <thead className="bg-cyber-bg-elevated border-b border-cyber-border text-cyber-text-dim text-[11px] uppercase">
               <tr>
                 <th className="p-4">Reg ID</th>
-                <th className="p-4">Cadet Name</th>
+                <th className="p-4">Participant Name</th>
                 <th className="p-4">Roll Number</th>
                 <th className="p-4">Dept / Year</th>
-                <th className="p-4">Track</th>
+                <th className="p-4">Credit Category</th>
                 <th className="p-4">Payment</th>
                 <th className="p-4">Registered At</th>
                 <th className="p-4 text-center">Actions</th>
@@ -204,7 +204,7 @@ export default function AdminRegistrationsPage() {
                     </td>
                     <td className="p-4">
                       <span className="font-bold text-emerald-400">
-                        {r.creditType === 'UE_CSE' ? 'PE — CSE' : 'UE — OTHER'}
+                        Non-CGPA Group 3
                       </span>
                     </td>
                     <td className="p-4">
@@ -293,7 +293,7 @@ export default function AdminRegistrationsPage() {
             <div className="flex items-center justify-between pb-4 border-b border-cyber-border">
               <div className="flex items-center gap-2 text-cyber-text font-bold">
                 <Eye className="w-5 h-5 text-cyber-primary" />
-                <span className="text-sm">CADET DOSSIER: {inspectingRecord.registrationId}</span>
+                <span className="text-sm">PARTICIPANT DOSSIER: {inspectingRecord.registrationId}</span>
               </div>
               <button
                 onClick={() => setInspectingRecord(null)}
@@ -337,9 +337,9 @@ export default function AdminRegistrationsPage() {
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-cyber-text-dim">Track Registered</span>
+                    <span className="text-cyber-text-dim">Academic Credit</span>
                     <span className="font-bold text-emerald-400">
-                      {inspectingRecord.creditType === 'UE_CSE' ? 'PE — CSE' : 'UE — OTHER'}
+                      Non-CGPA Group 3
                     </span>
                   </div>
                 </div>

@@ -30,7 +30,7 @@ export async function GET(
         {
           success: false,
           valid: false,
-          error: 'Certificate record not found in NEXTGEN SOC Cryptographic Registry.',
+          error: 'Certificate record not found in Prompt to Pro Workshop Cryptographic Registry.',
         },
         { status: 404 }
       );

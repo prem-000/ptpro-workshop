@@ -33,7 +33,7 @@ export default function Step2Academic({ form }: Props) {
     return '';
   });
 
-  // 2nd Year → auto-lock to CSE department (PE credit only)
+  // 2nd Year → auto-lock to CSE department (Non-CGPA Group 3)
   const is2ndYear = currentYear === '2nd Year';
 
   useEffect(() => {
@@ -127,17 +127,17 @@ export default function Step2Academic({ form }: Props) {
           </label>
 
           {is2ndYear ? (
-            /* 2nd Year: CSE locked — PE credit only */
+            /* 2nd Year: CSE locked */
             <>
               <input
                 type="text"
-                value="CSE — PE (Program Elective)"
+                value="CSE — Non-CGPA Group 3"
                 readOnly
                 disabled
                 className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-bg-elevated border border-cyber-primary/40 text-cyber-primary text-sm font-bold cursor-not-allowed select-none"
               />
-              <p className="text-[10px] text-amber-400 font-sans">
-                ⚠️ 2nd Year registrations are only open for CSE department (PE Credit).
+              <p className="text-[10px] text-emerald-400 font-sans">
+                ✓ This workshop provides 2 Non-CGPA Group 3 Certificates.
               </p>
             </>
           ) : (
@@ -149,8 +149,8 @@ export default function Step2Academic({ form }: Props) {
                 className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text text-sm focus:outline-none focus:border-cyber-primary transition-colors font-mono"
               >
                 <option value="">Select Department</option>
-                <option value="CSE">CSE - PE (Program Elective)</option>
-                <option value="Other">Others - UE (University Elective)</option>
+                <option value="CSE">CSE — Non-CGPA Group 3</option>
+                <option value="Other">Others — Non-CGPA Group 3</option>
               </select>
               {errors.department && !deptChoice && (
                 <p className="text-[11px] text-red-400">{errors.department.message}</p>

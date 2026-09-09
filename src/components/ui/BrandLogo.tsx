@@ -27,28 +27,28 @@ export function BrandLogo({
 
   const content = (
     <div className={cn('flex items-center gap-3 select-none group', className)}>
-      {/* Real Circular Logo with Natural Cyber Glow (No clunky square boxes) */}
+      {/* Real Circular Logo with Natural AI Purple / Cyan Ring - Retained Untouched */}
       <div className="relative shrink-0">
         <img
           src="/scrs-logo.png"
-          alt="SCRS Official Crest"
+          alt="SCRS Crest"
           className={cn(
-            'rounded-full object-contain transition-all duration-300 group-hover:scale-105 filter drop-shadow-[0_0_10px_rgba(0,229,255,0.45)] ring-1 ring-cyber-primary/40 group-hover:ring-cyber-primary',
+            'rounded-full object-contain transition-all duration-300 group-hover:scale-105 filter drop-shadow-[0_0_12px_rgba(124,92,255,0.4)] ring-1 ring-[#7C5CFF]/50 group-hover:ring-[#7C5CFF]',
             current.img
           )}
         />
-        <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-cyber-bg animate-pulse" />
+        <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#34D399] border-2 border-[#05070B]" />
       </div>
 
       {variant !== 'icon-only' && (
         <div className="flex flex-col text-left">
           <div className="flex items-center gap-1.5 leading-tight">
-            <span className={cn('font-mono font-extrabold tracking-wider text-cyber-text group-hover:text-cyber-primary transition-colors', current.text)}>
-              NEXTGEN <span className="text-cyber-primary">SOC</span>
+            <span className={cn('font-sans font-black tracking-tight text-[#F1F5F9] group-hover:text-white transition-colors', current.text)}>
+              PROMPT TO <span className="text-[#7C5CFF]">PRO</span>
             </span>
           </div>
-          <span className={cn('hidden sm:block font-mono font-semibold tracking-widest text-cyber-text-dim group-hover:text-cyber-secondary transition-colors uppercase', current.subtext)}>
-            SCRS // SOFT COMPUTING RESEARCH SOCIETY
+          <span className={cn('hidden sm:block font-mono font-medium tracking-wider text-[#A8B3C2] group-hover:text-white transition-colors uppercase truncate max-w-[280px]', current.subtext)}>
+            Kalasalingam (KARE) × School of Computing
           </span>
         </div>
       )}

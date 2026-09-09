@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Calendar,
@@ -15,82 +15,71 @@ import {
 } from 'lucide-react';
 
 export default function EventSpecsSection() {
-  const specs = {
-    eventType: '2-Day Practical Workshop',
-    dates: 'August 29 – 30, 2026',
-    time: '09:00 AM – 05:30 PM (IST)',
-    venue: 'TIFAC Core Seminar Hall',
-    fee: 300,
-    certificate: 'Participation Certificate',
-    eligibility: 'All Departments — 3rd & 4th Year',
-    totalSlots: 200,
-  };
-
   const specCards = [
     {
       icon: Layers,
       label: 'EVENT TYPE',
-      value: specs.eventType,
-      highlight: 'Hands-on Bootcamp',
+      value: '2-Day Hands-On Workshop',
+      highlight: 'Intensive Practical Lab',
     },
     {
       icon: Calendar,
-      label: 'BOOTCAMP DATES',
-      value: specs.dates,
+      label: 'WORKSHOP DATES',
+      value: '3rd & 4th October 2026',
       highlight: 'Saturday & Sunday',
     },
     {
       icon: Clock,
       label: 'SESSION TIMINGS',
-      value: specs.time,
-      highlight: 'Full Day Immersion',
+      value: '9:00 AM – 5:00 PM (IST)',
+      highlight: 'Full-Day Interactive Experience',
     },
     {
       icon: MapPin,
       label: 'VENUE',
-      value: specs.venue,
-      highlight: 'On Campus',
+      value: '9th Block Seminar Hall',
+      highlight: 'On Campus, KARE',
     },
     {
       icon: CreditCard,
       label: 'REGISTRATION FEE',
-      value: `₹${specs.fee}`,
-      highlight: 'One-time Inclusive Fee',
+      value: '₹200/- Flat',
+      highlight: 'All-Inclusive Workshop Access',
     },
     {
       icon: Users,
       label: 'TOTAL SLOTS',
-      value: `${specs.totalSlots} Seats`,
-      highlight: 'First Come First Serve',
+      value: '200 Seats Only',
+      highlight: 'First-Come, First-Served',
     },
     {
       icon: Award,
-      label: 'CERTIFICATE',
-      value: specs.certificate,
-      highlight: 'On Completion',
+      label: 'ACADEMIC CREDITS',
+      value: '2 Non-CGPA Group 3 Certificates',
+      highlight: 'Group 3 Accreditation',
     },
     {
       icon: GraduationCap,
       label: 'ELIGIBILITY',
-      value: specs.eligibility,
-      highlight: 'All Departments Open',
+      value: 'All Years & Departments',
+      highlight: 'Open to 1st, 2nd, 3rd, 4th Year',
     },
   ];
 
   return (
-    <section id="specs" className="py-16 sm:py-24 relative bg-cyber-bg-elevated/40 border-t border-cyber-border/60">
+    <section id="specs" className="py-16 sm:py-24 relative border-t border-[#1B2835]/80">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyber-primary/40 text-cyber-primary text-xs font-mono">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>// 03. OPERATIONAL SPECIFICATIONS</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D131C] border border-[#1B2835] text-[#A78BFA] text-xs font-sans font-medium">
+            <Sparkles className="w-3.5 h-3.5 text-[#7C5CFF]" />
+            <span>Event Logistics</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-mono text-cyber-text">
-            EVENT SPECIFICATIONS
+          <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#F1F5F9] tracking-tight">
+            Workshop Specifications
           </h2>
-          <p className="text-sm sm:text-base text-cyber-text-muted font-mono">
-            Key logistical parameters and venue details for bootcamp participants.
+          <p className="text-sm sm:text-base text-[#A8B3C2] font-sans">
+            Key academic parameters, timings, and campus venue details.
           </p>
         </div>
 
@@ -104,21 +93,20 @@ export default function EventSpecsSection() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.06, duration: 0.4 }}
-                whileHover={{ y: -3 }}
-                className="p-5 rounded-2xl cyber-glass border border-cyber-border hover:border-cyber-primary/40 transition-all duration-300 flex items-start gap-4 font-mono"
+                transition={{ delay: idx * 0.05, duration: 0.4 }}
+                className="p-5 rounded-2xl bg-[#0D131C] border border-[#1B2835] hover:border-[#263747] transition-all flex items-start gap-3.5"
               >
-                <div className="p-3 rounded-xl bg-cyber-surface border border-cyber-border text-cyber-primary shrink-0 shadow-cyber-glow-sm">
+                <div className="p-3 rounded-xl bg-[#111923] border border-[#1B2835] text-[#7C5CFF] shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
-                <div className="space-y-1 min-w-0 flex-1">
-                  <div className="text-[10px] text-cyber-text-dim uppercase tracking-wider font-bold">
+                <div className="space-y-1 min-w-0 flex-1 font-sans">
+                  <div className="text-[10px] text-[#718096] uppercase tracking-wider font-mono font-bold">
                     {item.label}
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-cyber-text">
+                  <div className="text-sm font-bold text-[#F1F5F9] leading-snug">
                     {item.value}
                   </div>
-                  <div className="text-[11px] text-cyber-primary">
+                  <div className="text-[11px] text-[#38BDF8] font-medium">
                     {item.highlight}
                   </div>
                 </div>

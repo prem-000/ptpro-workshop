@@ -248,10 +248,10 @@ export const auditLogs = pgTable(
 // 10. Event Settings Table
 export const eventSettings = pgTable('event_settings', {
   id: text('id').primaryKey(),
-  eventName: text('event_name').notNull().default('NEXTGEN SOC'),
-  tagline: text('tagline').notNull().default('Detect. Defend. Respond.'),
-  dates: text('dates').notNull().default('August 29 – 30, 2026'),
-  venue: text('venue').notNull().default('Main Cyber Range Auditorium & SOC Lab 4'),
+  eventName: text('event_name').notNull().default('Prompt to Pro'),
+  tagline: text('tagline').notNull().default('Learn. Build. Grow.'),
+  dates: text('dates').notNull().default('October 3 – 4, 2026'),
+  venue: text('venue').notNull().default('9th Block Seminar Hall'),
   registrationFeeUe: integer('registration_fee_ue').notNull().default(300),
   registrationFeeOther: integer('registration_fee_other').notNull().default(450),
   totalCapacity: integer('total_capacity').notNull().default(500),
@@ -261,7 +261,7 @@ export const eventSettings = pgTable('event_settings', {
   paymentUpiId: text('payment_upi_id').notNull().default('nextgensoc.dept@upi'),
   paymentQrUrl: text('payment_qr_url'),
   contactPhone: text('contact_phone').notNull().default('+91 98765 43210'),
-  contactEmail: text('contact_email').notNull().default('soc-support@nextgensoc.io'),
+  contactEmail: text('contact_email').notNull().default('prompttopro@klu.ac.in'),
   termsVersion: text('terms_version').notNull().default('v1.0'),
   coordinators: jsonb('coordinators'),
   whatsappGroupLink: text('whatsapp_group_link'),

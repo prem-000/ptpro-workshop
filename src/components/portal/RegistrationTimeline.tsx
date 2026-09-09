@@ -54,7 +54,7 @@ export default function RegistrationTimeline({
         ? 'in_progress'
         : 'upcoming',
       date: isPaymentVerified
-        ? 'Verified by SOC Admin'
+        ? 'Verified by Event Admin'
         : isPaymentRejected
         ? 'Requires Re-submission'
         : isPaymentSubmitted
@@ -73,24 +73,24 @@ export default function RegistrationTimeline({
         ? 'Day 1 & Day 2 Present'
         : day1Present
         ? 'Day 1 Present (Day 2 Pending)'
-        : 'QR Scan at Range',
+        : 'QR Scan at Venue',
     },
     {
       id: 6,
-      title: 'Certificate Generated',
+      title: '2 Non-CGPA Group 3 Certificates',
       status: hasCertificate ? 'completed' : 'upcoming',
-      date: hasCertificate ? 'Cryptographic QR Issued' : 'Requires Verified Attendance',
+      date: hasCertificate ? '2 Non-CGPA Group 3 Certificates Issued' : 'Requires Verified Attendance',
     },
   ];
 
   return (
-    <div className="p-6 rounded-2xl cyber-glass border border-cyber-border font-mono text-xs space-y-6">
-      <div className="flex items-center justify-between border-b border-cyber-border pb-3">
-        <h3 className="text-sm font-bold text-cyber-text tracking-wider uppercase flex items-center gap-2">
-          <Clock className="w-4 h-4 text-cyber-primary" />
-          <span>CADET LIFECYCLE PROGRESSION</span>
+    <div className="p-6 sm:p-8 rounded-3xl bg-[#0D131C] border border-[#1B2835] font-sans text-xs space-y-6">
+      <div className="flex items-center justify-between border-b border-[#1B2835] pb-3">
+        <h3 className="text-sm font-semibold text-white tracking-wider uppercase flex items-center gap-2 font-mono">
+          <Clock className="w-4 h-4 text-[#38BDF8]" />
+          <span>Participant Progression Timeline</span>
         </h3>
-        <span className="text-[11px] text-cyber-primary">REAL-TIME TIMELINE</span>
+        <span className="text-[11px] text-[#38BDF8] font-mono">Real-time Tracker</span>
       </div>
 
       <div className="relative pl-6 space-y-6">

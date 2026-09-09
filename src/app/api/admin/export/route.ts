@@ -71,7 +71,7 @@ export async function GET(req: NextRequest) {
       return new Response(buf, {
         headers: {
           'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-          'Content-Disposition': `attachment; filename="nextgen-soc-registrations-${Date.now()}.xlsx"`,
+          'Content-Disposition': `attachment; filename="prompt-to-pro-registrations-${Date.now()}.xlsx"`,
         },
       });
     }
@@ -158,7 +158,7 @@ export async function GET(req: NextRequest) {
       return new Response(buf, {
         headers: {
           'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-          'Content-Disposition': `attachment; filename="nextgen-soc-absentees-day${dayParam}-${Date.now()}.xlsx"`,
+          'Content-Disposition': `attachment; filename="prompt-to-pro-absentees-day${dayParam}-${Date.now()}.xlsx"`,
         },
       });
     }

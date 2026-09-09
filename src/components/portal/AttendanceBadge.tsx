@@ -42,7 +42,7 @@ export default function AttendanceBadge({
                 className="w-36 h-36"
               />
               <span className="text-[10px] font-bold text-slate-800 mt-1 uppercase">
-                SHOW TO SOC DESK
+                SHOW TO WORKSHOP DESK
               </span>
             </>
           ) : (

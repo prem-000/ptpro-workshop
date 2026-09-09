@@ -11,8 +11,8 @@ interface PreloaderProps {
 export default function CinematicPreloader({ onComplete }: PreloaderProps) {
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState<1 | 2 | 3>(1);
-  const [logText, setLogText] = useState('> INITIALIZING SCRS DEFENSE FRAMEWORK...');
-  const [glitchText, setGlitchText] = useState('NEXT GEN SOC BOOTCAMP');
+  const [logText, setLogText] = useState('> INITIALIZING PROMPT TO PRO WORKSHOP...');
+  const [glitchText, setGlitchText] = useState('PROMPT TO PRO WORKSHOP');
 
   // Suppress THREE.Clock deprecation warning from R3F internals
   useEffect(() => {
@@ -42,11 +42,11 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
       setProgress(current);
 
       // Telemetry Logs logic
-      if (current < 25) setLogText('> INITIALIZING SCRS DEFENSE FRAMEWORK...');
-      else if (current < 50) setLogText('> DEPLOYING NEXT GEN SOC NODE NETWORK...');
-      else if (current < 75) setLogText('> SCANNING INCIDENT VECTORS & SIEM PROTOCOLS...');
-      else if (current < 99) setLogText('> ESTABLISHING SECURE THREAT INTEL FEED...');
-      else setLogText('> FIREWALL SYNCHRONIZED // ENGAGING REVEAL');
+      if (current < 25) setLogText('> INITIALIZING AI REASONING CORE...');
+      else if (current < 50) setLogText('> PREPARING GENAI APPLICATION WORKSPACES...');
+      else if (current < 75) setLogText('> INITIALIZING DATA ANALYTICS & SQL LABS...');
+      else if (current < 99) setLogText('> CONNECTING ACADEMIC WORKSHOP PORTAL...');
+      else setLogText('> PROMPT TO PRO READY // ENGAGING REVEAL');
 
     }, 30); // Very fast load (~1.5s to 100%)
     return () => clearInterval(interval);
@@ -63,7 +63,7 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
   useEffect(() => {
     if (phase === 3) {
       // Matrix glitch decrypt effect for main title
-      const original = 'NEXT GEN SOC BOOTCAMP';
+      const original = 'PROMPT TO PRO';
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>';
       let iterations = 0;
       
@@ -88,7 +88,7 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
   }, [phase, onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#030712] overflow-hidden font-mono text-cyber-primary selection:bg-none">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#05070B] overflow-hidden font-mono text-cyber-primary selection:bg-none">
       
       {/* 3D Radar Sphere Layer */}
       <RadarSphere3D implode={phase >= 2} />
@@ -105,7 +105,7 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
             className="relative z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none"
           >
             {/* Center HUD Target Ring */}
-            <div className="relative flex items-center justify-center w-64 h-64 rounded-full border border-cyber-primary/20 bg-cyber-bg/20 backdrop-blur-sm shadow-[0_0_60px_rgba(16,185,129,0.1)]">
+            <div className="relative flex items-center justify-center w-64 h-64 rounded-full border border-cyber-primary/20 bg-cyber-bg/20 backdrop-blur-sm shadow-[0_0_60px_rgba(124,92,255,0.15)]">
               {/* Rotating outer dash ring */}
               <motion.div 
                 animate={{ rotate: 360 }} 
@@ -120,11 +120,11 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
               
               {/* Progress Text */}
               <div className="text-center">
-                <div className="text-6xl font-black tracking-tighter text-cyber-primary drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]">
+                <div className="text-6xl font-black tracking-tighter text-cyber-primary drop-shadow-[0_0_15px_rgba(124,92,255,0.8)]">
                   {progress.toString().padStart(2, '0')}<span className="text-3xl text-cyber-primary/60">%</span>
                 </div>
                 <div className="text-[10px] mt-2 text-cyber-primary/70 tracking-widest font-bold">
-                  SYS_BOOT_SEQ
+                  AI_WORKSPACE_BOOT
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
             initial={{ scale: 0.1, opacity: 1, borderWidth: '20px' }}
             animate={{ scale: 15, opacity: 0, borderWidth: '1px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="absolute z-20 rounded-full border-emerald-400 pointer-events-none"
+            className="absolute z-20 rounded-full border-[#7C5CFF] pointer-events-none"
             style={{ width: '100px', height: '100px' }}
           />
         )}
@@ -160,15 +160,15 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
             key="reveal"
             className="relative z-30 flex flex-col items-center justify-center text-center w-full h-full pointer-events-none px-4"
           >
-            {/* Shield Logo Reveal */}
+            {/* Logo Reveal */}
             <motion.div
               initial={{ rotateY: 180, scale: 0, opacity: 0 }}
               animate={{ rotateY: 0, scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, type: 'spring', bounce: 0.5 }}
               className="mb-8 flex flex-col items-center"
             >
-              <div className="w-24 h-24 bg-cyber-bg/90 border border-cyber-primary backdrop-blur-md rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(16,185,129,0.4)] overflow-hidden p-1">
-                <img src="/scrs-logo.png" alt="SCRS Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(0,229,255,0.6)]" />
+              <div className="w-24 h-24 bg-cyber-bg/90 border border-cyber-primary/40 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(124,92,255,0.3)] overflow-hidden p-1">
+                <img src="/scrs-logo.png" alt="SCRS Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(124,92,255,0.5)]" />
               </div>
             </motion.div>
 
@@ -177,19 +177,19 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
               initial={{ y: 20, opacity: 0, filter: 'blur(10px)' }}
               animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-cyber-primary/90 text-sm md:text-base tracking-[0.4em] mb-4 font-bold"
+              className="text-cyber-primary/90 text-xs md:text-sm tracking-[0.3em] mb-4 font-bold"
             >
-              SCRS CLUB PRESENTS
+              KARE × SCHOOL OF COMPUTING × ALUMNI PRESENT
             </motion.div>
 
-            {/* Cyber Decrypt Title with Chromatic Aberration */}
+            {/* Decrypt Title */}
             <motion.h1
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 0.5 }}
               className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none"
               style={{ 
-                textShadow: '0 0 30px rgba(16,185,129,0.5), 3px 0 0 rgba(255,0,0,0.6), -3px 0 0 rgba(0,255,255,0.6)' 
+                textShadow: '0 0 30px rgba(124,92,255,0.5), 2px 0 0 rgba(56,189,248,0.5), -2px 0 0 rgba(124,92,255,0.5)' 
               }}
             >
               {glitchText}
@@ -202,11 +202,11 @@ export default function CinematicPreloader({ onComplete }: PreloaderProps) {
               transition={{ duration: 0.6, delay: 1.8, type: 'spring' }}
               className="mt-8 flex flex-wrap justify-center gap-3 md:gap-6 text-[10px] md:text-sm font-mono text-cyber-text-muted tracking-[0.2em]"
             >
-              <span className="text-white">CYBER DEFENSE</span>
+              <span className="text-white">GENAI APPS</span>
               <span className="text-cyber-primary/40">//</span>
-              <span className="text-white">INCIDENT RESPONSE</span>
+              <span className="text-white">SQL & DATA</span>
               <span className="text-cyber-primary/40">//</span>
-              <span className="text-white">SIEM</span>
+              <span className="text-white">OCTOBER 3-4, 2026</span>
             </motion.div>
             
             {/* Glowing Horizon Sweep Laser (Reveals the page) */}

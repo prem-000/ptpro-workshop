@@ -415,7 +415,7 @@ export default function AdminAttendanceAndSnacksPage() {
                     type="text"
                     value={inputRegId}
                     onChange={(e) => setInputRegId(e.target.value.toUpperCase())}
-                    placeholder="Type Reg ID (e.g. NGSOC-2026-XXXXX) or Roll Number"
+                    placeholder="Type Reg ID or Roll Number"
                     className="w-full px-3.5 py-2.5 rounded-xl bg-cyber-surface border border-cyber-border text-amber-400 font-bold text-xs focus:outline-none focus:border-amber-400"
                   />
 
@@ -520,11 +520,9 @@ export default function AdminAttendanceAndSnacksPage() {
                           </span>
                         </div>
                         <div>
-                          Track:{' '}
+                          Credit:{' '}
                           <span className="text-emerald-400 font-bold">
-                            {lastScanResult.participant.creditType === 'UE_CSE'
-                              ? 'PE — CSE'
-                              : 'PEOPLE — OTHER'}
+                            Non-CGPA Group 3
                           </span>
                         </div>
                       </div>
@@ -663,7 +661,7 @@ export default function AdminAttendanceAndSnacksPage() {
               onChange={(e) => setDay1Filter(e.target.value as any)}
               className="px-3 py-2 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text focus:outline-none focus:border-cyber-primary"
             >
-              <option value="ALL">Day 1: All Cadets</option>
+              <option value="ALL">Day 1: All Participants</option>
               <option value="PRESENT">Day 1: Present Only</option>
               <option value="ABSENT">Day 1: Absent Only</option>
             </select>
@@ -674,7 +672,7 @@ export default function AdminAttendanceAndSnacksPage() {
               onChange={(e) => setDay2Filter(e.target.value as any)}
               className="px-3 py-2 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text focus:outline-none focus:border-cyber-primary"
             >
-              <option value="ALL">Day 2: All Cadets</option>
+              <option value="ALL">Day 2: All Participants</option>
               <option value="PRESENT">Day 2: Present Only</option>
               <option value="ABSENT">Day 2: Absent Only</option>
             </select>
@@ -733,7 +731,7 @@ export default function AdminAttendanceAndSnacksPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="p-4 rounded-xl cyber-glass border border-cyber-border flex items-center justify-between">
               <div>
-                <span className="text-cyber-text-muted text-[10px] block">TOTAL CADETS</span>
+                <span className="text-cyber-text-muted text-[10px] block">TOTAL PARTICIPANTS</span>
                 <span className="text-xl font-bold text-cyber-text">{cadets.length}</span>
               </div>
               <Users className="w-6 h-6 text-cyber-primary" />
@@ -760,17 +758,17 @@ export default function AdminAttendanceAndSnacksPage() {
             </div>
           </div>
 
-          {/* Cadets Table */}
+          {/* Participants Table */}
           <div className="cyber-glass rounded-2xl border border-cyber-border overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead className="bg-cyber-bg-elevated border-b border-cyber-border text-cyber-text-dim text-[11px] uppercase">
                   <tr>
                     <th className="p-4">Reg ID</th>
-                    <th className="p-4">Cadet Name</th>
+                    <th className="p-4">Participant Name</th>
                     <th className="p-4">Roll Number</th>
                     <th className="p-4">Dept / Sec</th>
-                    <th className="p-4">Track</th>
+                    <th className="p-4">Credit Category</th>
                     <th className="p-4 text-center">Day 1 Attendance</th>
                     <th className="p-4 text-center">Day 2 Attendance</th>
                   </tr>
@@ -786,7 +784,7 @@ export default function AdminAttendanceAndSnacksPage() {
                   ) : filteredCadets.length === 0 ? (
                     <tr>
                       <td colSpan={7} className="p-8 text-center text-cyber-text-muted">
-                        No cadets found matching search/filter.
+                        No participants found matching search/filter.
                       </td>
                     </tr>
                   ) : (
@@ -812,7 +810,7 @@ export default function AdminAttendanceAndSnacksPage() {
                           </td>
                           <td className="p-4">
                             <span className="font-bold text-emerald-400">
-                              {cadet.creditType === 'UE_CSE' ? 'PE — CSE' : 'PEOPLE — OTHER'}
+                              Non-CGPA Group 3
                             </span>
                           </td>
 

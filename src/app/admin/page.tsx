@@ -67,7 +67,7 @@ export default function AdminDashboardPage() {
             setActivities((prev) => [
               {
                 id: String(Date.now()),
-                text: 'New cadet registered',
+                text: 'New participant registered',
                 type: 'reg',
                 timestamp: 'Just now',
               },
@@ -104,7 +104,7 @@ export default function AdminDashboardPage() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-cyber-border">
         <div>
           <h1 className="text-2xl font-bold text-cyber-text tracking-wide flex items-center gap-2">
-            SOC COMMAND CENTER
+            EVENT ADMIN CENTER
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
           </h1>
           <p className="text-xs text-cyber-text-muted mt-1">
@@ -159,7 +159,7 @@ export default function AdminDashboardPage() {
         <MetricCard
           title="DAY 1 / DAY 2 ATTENDANCE"
           value={`${stats.day1Attendance} | ${stats.day2Attendance}`}
-          subtitle="QR scanned cadets"
+          subtitle="QR scanned participants"
           icon={QrCode}
           variant="cyan"
 
@@ -180,7 +180,7 @@ export default function AdminDashboardPage() {
             <div className="p-4 rounded-xl bg-cyber-bg/80 border border-cyber-border space-y-3 font-mono text-xs">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-cyber-text flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-cyber-primary" /> LIVE BOOTCAMP CAPACITY CONTROL
+                  <Users className="w-3.5 h-3.5 text-cyber-primary" /> LIVE WORKSHOP CAPACITY CONTROL
                 </span>
                 <span className="text-[11px] text-cyber-text-dim">
                   TOTAL: <strong className="text-cyber-primary text-sm font-bold">{stats.totalCapacity} SLOTS</strong>
@@ -313,7 +313,7 @@ export default function AdminDashboardPage() {
               <Link href="/admin/registrations" className="block">
                 <div className="p-4 rounded-xl bg-cyber-surface hover:bg-cyber-surface-elevated border border-cyber-border hover:border-cyber-primary transition-all space-y-1">
                   <div className="flex items-center justify-between text-cyber-text font-bold text-sm">
-                    <span>CADET ROSTER</span>
+                    <span>PARTICIPANT ROSTER</span>
                     <Users className="w-4 h-4 text-cyber-primary" />
                   </div>
                   <p className="text-[11px] text-cyber-text-muted">

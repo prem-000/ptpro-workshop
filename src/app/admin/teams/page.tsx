@@ -372,7 +372,7 @@ export default function AdminTeamsPage() {
             TEAMS & PROBLEM STATEMENTS
           </h1>
           <p className="text-xs text-cyber-text-muted mt-1 font-mono">
-            MANAGE BOOTCAMP TEAMS, ASSIGN LEADS, AND UPLOAD PROBLEM STATEMENTS
+            MANAGE WORKSHOP TEAMS, ASSIGN LEADS, AND UPLOAD PROBLEM STATEMENTS
           </p>
         </div>
         <button onClick={() => { fetchTeams(); fetchPS(); }} className="p-2 rounded-xl bg-cyber-surface border border-cyber-border text-cyber-text-muted hover:text-cyber-primary transition-colors">

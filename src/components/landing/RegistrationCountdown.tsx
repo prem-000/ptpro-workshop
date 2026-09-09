@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Timer, Sparkles } from 'lucide-react';
+import { Timer } from 'lucide-react';
 
 export default function RegistrationCountdown() {
-  const [targetDate, setTargetDate] = useState(new Date('2026-08-29T09:00:00+05:30').getTime());
+  const [targetDate, setTargetDate] = useState(new Date('2026-10-03T09:00:00+05:30').getTime());
 
   useEffect(() => {
     async function loadTarget() {
@@ -15,7 +15,9 @@ export default function RegistrationCountdown() {
         if (data.success && data.stats?.countdownTarget) {
           setTargetDate(new Date(data.stats.countdownTarget).getTime());
         }
-      } catch (e) { /* use default */ }
+      } catch (e) {
+        // use default
+      }
     }
     loadTarget();
   }, []);
@@ -59,38 +61,41 @@ export default function RegistrationCountdown() {
   ];
 
   return (
-    <section id="countdown" className="py-16 sm:py-24 relative border-t border-cyber-border/60">
+    <section id="countdown" className="py-20 sm:py-24 relative border-t border-[#1B2835]">
       <div className="container mx-auto px-4">
-        <div className="w-full max-w-4xl mx-auto cyber-glass-glow rounded-3xl p-6 sm:p-10 border border-cyber-primary/40 shadow-cyber-card text-center space-y-6">
+        <div className="w-full max-w-4xl mx-auto rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 bg-gradient-to-b from-[#0D131C] to-[#080C12] border border-[#1B2835] text-center space-y-6 sm:space-y-8 shadow-2xl relative overflow-hidden">
+          {/* Subtle Ambient Glow */}
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#7C5CFF]/10 blur-3xl pointer-events-none rounded-full" />
+
           {/* Header */}
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyber-primary/40 text-cyber-primary text-xs font-mono">
-              <Timer className="w-3.5 h-3.5 animate-pulse" />
-              <span>// 08. LAUNCH COUNTDOWN</span>
+          <div className="space-y-3 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#7C5CFF]/10 border border-[#7C5CFF]/30 text-[#A78BFA] text-xs font-medium">
+              <Timer className="w-3.5 h-3.5 animate-pulse text-[#7C5CFF]" />
+              <span>Workshop Launch Countdown</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-extrabold font-mono text-cyber-text">
-              BOOTCAMP LAUNCH COUNTDOWN
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight">
+              Event Commences In
             </h3>
-            <p className="text-xs font-mono text-cyber-text-muted">
-              COUNTDOWN TO BOOTCAMP // AUGUST 29, 2026 // TIFAC CORE SEMINAR HALL
+            <p className="text-xs sm:text-sm font-sans text-slate-400 max-w-md mx-auto">
+              October 3, 2026 • 9th Block Seminar Hall • Kalasalingam University
             </p>
           </div>
 
           {/* 4 Digit Boxes */}
-          <div suppressHydrationWarning className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto pt-2">
+          <div suppressHydrationWarning className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto pt-2 relative z-10">
             {timeUnits.map((u, idx) => (
               <motion.div
                 key={u.label}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08 }}
-                className="p-4 sm:p-5 rounded-2xl bg-cyber-surface/90 border border-cyber-border hover:border-cyber-primary/60 transition-colors shadow-cyber-glow-sm flex flex-col items-center justify-center space-y-1 font-mono"
+                className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#111923]/90 border border-[#1B2835] hover:border-[#7C5CFF]/40 transition-colors flex flex-col items-center justify-center space-y-1 shadow-inner"
               >
-                <span suppressHydrationWarning className="text-3xl sm:text-5xl font-extrabold text-cyber-primary font-mono-numbers drop-shadow-[0_0_12px_rgba(0,229,255,0.5)]">
+                <span suppressHydrationWarning className="text-2xl sm:text-4xl md:text-5xl font-mono font-bold text-white tracking-tight">
                   {String(u.value).padStart(2, '0')}
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-bold text-cyber-text-dim uppercase tracking-widest">
+                <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-[#38BDF8] uppercase font-semibold">
                   {u.label}
                 </span>
               </motion.div>

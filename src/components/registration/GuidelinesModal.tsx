@@ -55,7 +55,7 @@ export default function GuidelinesModal({ onContinue }: Props) {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-emerald-400">✓</span>
-              <span>Verify your credit type (PE for CSE / UE for Others)</span>
+              <span>Verify your eligibility for 2 Non-CGPA Group 3 Certificates</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-emerald-400">✓</span>

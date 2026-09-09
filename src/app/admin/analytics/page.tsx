@@ -73,7 +73,7 @@ export default function AdminAnalyticsPage() {
         <div>
           <h1 className="text-2xl font-bold text-cyber-text tracking-wide flex items-center gap-2">
             <BarChart3 className="w-6 h-6 text-cyber-primary" />
-            <span>SOC REGISTRATION & TELEMETRY ANALYTICS</span>
+            <span>WORKSHOP REGISTRATION & TELEMETRY ANALYTICS</span>
           </h1>
           <p className="text-xs text-cyber-text-muted mt-1">
             ALL DATA IS LIVE FROM DATABASE — NO MOCK DATA

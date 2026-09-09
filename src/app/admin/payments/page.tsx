@@ -136,7 +136,7 @@ export default function AdminPaymentsPage() {
         <div>
           <h1 className="text-2xl font-bold text-cyber-text tracking-wide flex items-center gap-2">
             <CreditCard className="w-6 h-6 text-cyber-primary" />
-            <span>SOC PAYMENT VERIFICATION QUEUE</span>
+            <span>WORKSHOP PAYMENT VERIFICATION QUEUE</span>
           </h1>
           <p className="text-xs text-cyber-text-muted mt-1">
             OCR TRANSACTION INTELLIGENCE & SETTLEMENT APPROVAL
@@ -228,7 +228,7 @@ export default function AdminPaymentsPage() {
                       </td>
                       <td className="p-4">
                         <span className="font-bold text-cyber-primary">
-                          {p.participant.creditType === 'UE_CSE' ? 'PE — CSE' : 'UE — OTHER'}
+                          Non-CGPA Group 3
                         </span>
                       </td>
                       <td className="p-4 font-bold text-cyber-text">{p.utr}</td>
@@ -273,7 +273,7 @@ export default function AdminPaymentsPage() {
         </div>
       </div>
 
-      {/* SOC Transaction Investigation Modal */}
+      {/* Workshop Transaction Investigation Modal */}
       <AnimatePresence>
         {selectedPayment && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
@@ -319,7 +319,7 @@ export default function AdminPaymentsPage() {
                       <div>Name: <span className="text-cyber-text font-bold">{selectedPayment.participant.name}</span></div>
                       <div>Roll No: <span className="text-cyber-text">{selectedPayment.participant.registerNumber}</span></div>
                       <div>Email: <span className="text-cyber-text truncate block">{selectedPayment.participant.email}</span></div>
-                      <div>Track: <span className="text-emerald-400 font-bold">{selectedPayment.participant.creditType}</span></div>
+                      <div>Credit: <span className="text-emerald-400 font-bold">Non-CGPA Group 3</span></div>
                     </div>
 
                     {/* Prominent User-Submitted UTR */}
@@ -349,7 +349,7 @@ export default function AdminPaymentsPage() {
                     return (
                       <div className="p-4 rounded-xl bg-cyber-surface/80 border border-cyan-500/40 space-y-3">
                         <div className="text-cyber-primary font-bold text-xs uppercase tracking-wider flex items-center justify-between">
-                          <span>AUTOMATED SOC CHECKS</span>
+                          <span>AUTOMATED VERIFICATION CHECKS</span>
                           <span className="text-[10px] text-cyber-text-dim">OCR CONFIDENCE: {selectedPayment.ocrConfidence || 0}%</span>
                         </div>
 
@@ -510,7 +510,7 @@ export default function AdminPaymentsPage() {
                     className="w-full sm:w-auto gap-2"
                   >
                     <ShieldCheck className="w-4 h-4" />
-                    <span>✓ VERIFY PAYMENT & NOTIFY CADET</span>
+                    <span>✓ VERIFY PAYMENT & NOTIFY PARTICIPANT</span>
                   </CyberButton>
                 </div>
               </div>

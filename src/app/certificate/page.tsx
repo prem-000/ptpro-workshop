@@ -16,7 +16,7 @@ export default function CertificatePage() {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<any>(null);
-  const [certId, setCertId] = useState<string>('NGSOC-2026-CERT-00421');
+  const [certId, setCertId] = useState<string>('P2P-2026-CERT-00421');
 
   useEffect(() => {
     async function load() {
@@ -29,7 +29,7 @@ export default function CertificatePage() {
             setCertId(json.certificate.certificateId);
           } else {
             // Generate synthetic ID for preview if verified
-            setCertId(`NGSOC-2026-CERT-${json.registration.registrationId.split('-')[2] || '00421'}`);
+            setCertId(`P2P-2026-CERT-${json.registration.registrationId.split('-')[2] || '00421'}`);
           }
         }
       } catch (e) {
@@ -73,11 +73,11 @@ export default function CertificatePage() {
             CERTIFICATE LOCKED
           </h2>
           <p className="text-xs font-mono text-cyber-text-muted">
-            Certificates are issued only to participants with verified payments and confirmed bootcamp attendance.
+            Certificates are issued only to participants with verified payments and confirmed workshop attendance.
           </p>
           <Link href="/portal" className="block pt-2">
             <CyberButton variant="primary" size="md" className="w-full">
-              RETURN TO CADET PORTAL
+              RETURN TO PARTICIPANT PORTAL
             </CyberButton>
           </Link>
         </div>
@@ -85,7 +85,7 @@ export default function CertificatePage() {
     );
   }
 
-  const verifyUrl = `${typeof window !== 'undefined' ? window.location.origin : 'https://nextgensoc.io'}/certificate/verify/${certId}`;
+  const verifyUrl = `${typeof window !== 'undefined' ? window.location.origin : 'https://prompttopro.klu.ac.in'}/certificate/verify/${certId}`;
 
   return (
     <div className="flex-1 py-10 px-4">
@@ -127,10 +127,10 @@ export default function CertificatePage() {
               </div>
               <div className="text-left font-mono">
                 <div className="text-base font-bold text-cyber-text tracking-wider">
-                  NEXTGEN SOC CYBER COMMAND
+                  PROMPT TO PRO ACADEMY
                 </div>
                 <div className="text-[10px] text-cyber-primary uppercase tracking-widest">
-                  SOFT COMPUTING RESEARCH SOCIETY (SCRS)
+                  SCHOOL OF COMPUTING & SCRS
                 </div>
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function CertificatePage() {
 
           {/* Description */}
           <div className="relative z-10 max-w-2xl mx-auto text-xs sm:text-sm font-mono text-cyber-text-muted leading-relaxed">
-            For successfully completing the intensive 2-day hands-on <strong className="text-cyber-text">Security Operations Centre Analyst Bootcamp</strong> on August 29 - 30, 2026, demonstrating proficiency in SIEM Log Telemetry, Wireshark Packet Forensics, Memory Threat Hunting, and Live Incident Containment.
+            For successfully completing the intensive 2-day hands-on <strong className="text-cyber-text">Prompt to Pro: GenAI & Data Analytics Workshop</strong> on October 3 – 4, 2026, demonstrating proficiency in Generative AI Application Building, Prompt Engineering, SQL Relational Analytics, and Industry Pathways.
           </div>
 
           {/* Footer Signatures & QR Verification */}
@@ -166,9 +166,9 @@ export default function CertificatePage() {
                 Evelyn Vance
               </div>
               <div className="border-t border-cyber-border/80 pt-1 text-[11px] text-cyber-text">
-                Dr. Evelyn Vance, CISO
+                Dr. Evelyn Vance, Organizing Chair
               </div>
-              <div className="text-[10px] text-cyber-text-dim">SOC Range Director</div>
+              <div className="text-[10px] text-cyber-text-dim">Workshop Director</div>
             </div>
 
             {/* Center QR Validation */}
@@ -192,7 +192,7 @@ export default function CertificatePage() {
               <div className="border-t border-cyber-border/80 pt-1 text-[11px] text-cyber-text">
                 Marcus Thorne, Lead Architect
               </div>
-              <div className="text-[10px] text-cyber-text-dim">Chief Range Controller</div>
+              <div className="text-[10px] text-cyber-text-dim">Chief Program Mentor</div>
             </div>
           </div>
         </div>

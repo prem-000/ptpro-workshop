@@ -9,6 +9,25 @@ let cachedStats: any = null;
 let lastFetchTime = 0;
 const CACHE_TTL_MS = 1500; // 1.5 second high-throughput memory cache
 
+const DEFAULT_COORDINATORS = [
+  {
+    name: 'Sai Dhanush',
+    role: 'Student Technical Lead',
+    department: 'School of Computing / 3rd Year',
+    phone: '+91 93812 76836',
+    whatsappUrl: 'https://wa.me/919381276836?text=Hi%20Sai%20Dhanush,%20I%20have%20a%20query%20about%20the%20Prompt%20to%20Pro%20Workshop.',
+    callUrl: 'tel:+919381276836',
+  },
+  {
+    name: 'Rahul',
+    role: 'Student Operations Lead',
+    department: 'School of Computing / 3rd Year',
+    phone: '+91 95153 92839',
+    whatsappUrl: 'https://wa.me/919515392839?text=Hi%20Rahul,%20I%20have%20a%20query%20about%20the%20Prompt%20to%20Pro%20Workshop.',
+    callUrl: 'tel:+919515392839',
+  },
+];
+
 export async function GET() {
   const now = Date.now();
   if (cachedStats && now - lastFetchTime < CACHE_TTL_MS) {
@@ -25,8 +44,8 @@ export async function GET() {
     const settings = (await db.select().from(eventSettings).limit(1))[0] || {
       totalCapacity: 200,
       registrationOpen: true,
-      registrationFee: 300,
-      countdownTarget: '2026-08-29T09:00:00+05:30',
+      registrationFee: 200,
+      countdownTarget: '2026-10-03T09:00:00+05:30',
     };
 
     // 2. Count Active Registrations
@@ -57,25 +76,6 @@ export async function GET() {
     const payStats = payCounts[0] || { verified: 0, pending: 0 };
     const attStats = attCounts[0] || { day1: 0, day2: 0 };
 
-const DEFAULT_COORDINATORS = [
-  {
-    name: 'SAI DHANUSH',
-    role: 'Student Technical Lead',
-    department: 'CSE / 3rd Year',
-    phone: '+91 93812 76836',
-    whatsappUrl: 'https://wa.me/919381276836?text=Hi%20Sai%20Dhanush,%20I%20have%20a%20query%20about%20NextGen%20SOC%20Bootcamp.',
-    callUrl: 'tel:+919381276836',
-  },
-  {
-    name: 'RAHUL',
-    role: 'Student Operations Lead',
-    department: 'CSE / 3rd Year',
-    phone: '+91 95153 92839',
-    whatsappUrl: 'https://wa.me/919515392839?text=Hi%20Rahul,%20I%20have%20a%20query%20about%20NextGen%20SOC%20Bootcamp.',
-    callUrl: 'tel:+919515392839',
-  },
-];
-
     const boost = (settings as any).registrationCountBoost || 0;
 
     const computedStats = {
@@ -91,7 +91,17 @@ const DEFAULT_COORDINATORS = [
       countdownTarget: (settings as any).countdownTarget || '2026-08-29T09:00:00+05:30',
       paymentUpiId: (settings as any).paymentUpiId || 'scrs@upi',
       paymentQrUrl: (settings as any).paymentQrUrl || null,
-      coordinators: (settings as any).coordinators || DEFAULT_COORDINATORS,
+      coordinators: (((settings as any).coordinators && Array.isArray((settings as any).coordinators) && (settings as any).coordinators.length > 0)
+        ? (settings as any).coordinators
+        : DEFAULT_COORDINATORS).map((c: any) => {
+          const cleanDigits = (c.phone || '').replace(/\D/g, '');
+          const phoneNum = cleanDigits.length === 10 ? '91' + cleanDigits : cleanDigits;
+          let wa = (c.whatsappUrl || '').trim();
+          if (!wa || /nextgen|soc|bootcamp/i.test(wa) || !wa.includes('Prompt')) {
+            wa = `https://wa.me/${phoneNum}?text=Hi%20${encodeURIComponent(c.name || 'Coordinator')},%20I%20have%20a%20query%20about%20the%20Prompt%20to%20Pro%20Workshop.`;
+          }
+          return { ...c, whatsappUrl: wa };
+        }),
       whatsappGroupLink: (settings as any).whatsappGroupLink || null,
       whatsappGroupQrUrl: (settings as any).whatsappGroupQrUrl || null,
     };
@@ -116,8 +126,9 @@ const DEFAULT_COORDINATORS = [
           day1Attendance: 0,
           day2Attendance: 0,
           registrationOpen: true,
-          registrationFee: 300,
-          countdownTarget: '2026-08-29T09:00:00+05:30',
+          registrationFee: 200,
+          countdownTarget: '2026-10-03T09:00:00+05:30',
+          coordinators: DEFAULT_COORDINATORS,
         },
       },
       { status: 200 }

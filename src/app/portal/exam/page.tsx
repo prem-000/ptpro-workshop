@@ -236,7 +236,7 @@ export default function SecureExamPage() {
       <header className="sticky top-0 z-40 bg-cyber-bg-elevated/95 backdrop-blur-md border-b border-cyber-border px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3 text-cyan-400 w-full md:w-auto justify-center md:justify-start">
           <ShieldAlert className="w-6 h-6" />
-          <h1 className="font-mono font-bold tracking-widest text-sm md:text-base truncate">NEXTGEN SECURE EXAM</h1>
+          <h1 className="font-mono font-bold tracking-widest text-sm md:text-base truncate">PROMPT TO PRO SECURE EXAM</h1>
         </div>
         
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-6 w-full md:w-auto">

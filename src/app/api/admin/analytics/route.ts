@@ -74,7 +74,7 @@ export async function GET() {
       analytics: {
         departmentBreakdown: deptBreakdown,
         trackBreakdown: trackBreakdown.map((t) => ({
-          name: t.name === 'UE_CSE' ? 'PE — CSE' : 'UE — Other',
+          name: t.name === 'UE_CSE' ? 'Non-CGPA Group 3 (CSE)' : 'Non-CGPA Group 3 (Other)',
           count: t.count,
         })),
         yearBreakdown: yearBreakdown,

@@ -51,7 +51,7 @@ export default function TermsModal({ onAccept }: Props) {
         {[
           {
             key: 'termsAccepted',
-            label: 'I have read and agree to the NextGen SOC Bootcamp Terms & Conditions.',
+            label: 'I have read and agree to the Prompt to Pro Workshop Terms & Conditions.',
           },
           {
             key: 'informationAccurate',

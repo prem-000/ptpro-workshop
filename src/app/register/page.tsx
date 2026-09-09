@@ -297,7 +297,7 @@ function RegisterContent() {
               REGISTRATIONS CLOSED
             </h2>
             <p className="text-xs font-mono text-cyber-text-muted mt-2 leading-relaxed">
-              Registration time has completed. Admissions for NEXTGEN SOC Bootcamp are officially closed.
+              Registration time has completed. Admissions for Prompt to Pro Workshop are officially closed.
             </p>
           </div>
           <div className="pt-2">

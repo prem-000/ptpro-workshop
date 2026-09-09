@@ -18,7 +18,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="flex-1 flex items-center justify-center p-4 min-h-screen">
         <div className="font-mono text-cyber-primary text-sm flex items-center gap-3">
           <span className="w-5 h-5 rounded-full border-2 border-cyber-primary border-t-transparent animate-spin" />
-          <span>AUTHENTICATING SOC COMMAND CENTER ACCESS...</span>
+          <span>AUTHENTICATING EVENT ADMIN CENTER ACCESS...</span>
         </div>
       </div>
     );
@@ -34,7 +34,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               ADMINISTRATIVE ACCESS RESTRICTED
             </h2>
             <p className="text-xs font-mono text-cyber-text-muted mt-1.5 leading-relaxed">
-              SOC Command Center requires authenticated administrative credentials.
+              Event Admin Center requires authenticated administrative credentials.
             </p>
           </div>
           <Link href="/login?callbackUrl=/admin" className="block">
@@ -59,7 +59,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               UNAUTHORIZED ROLE
             </h2>
             <p className="text-xs font-mono text-cyber-text-muted mt-1.5 leading-relaxed">
-              Your account ({session?.user?.email || 'authenticated user'}) has role &quot;participant&quot;. Only authorized SOC Administrators can access this command layer.
+              Your account ({session?.user?.email || 'authenticated user'}) has role &quot;participant&quot;. Only authorized Event Administrators can access this command layer.
             </p>
           </div>
           <div className="space-y-3">
@@ -86,7 +86,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="md:hidden p-4 border-b border-cyber-border flex justify-between items-center bg-cyber-bg-elevated/95 backdrop-blur-md sticky top-0 z-40">
           <Link href="/admin" className="font-bold text-cyber-primary font-mono tracking-widest text-lg flex items-center gap-2">
             <Shield className="w-5 h-5 text-emerald-400" />
-            <span>SOC_ADMIN</span>
+            <span>EVENT_ADMIN</span>
           </Link>
           <button 
             onClick={() => setSidebarOpen(true)} 

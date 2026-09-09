@@ -40,7 +40,7 @@ export default function CertificateVerifyPage() {
             <Award className="w-7 h-7" />
           </div>
           <h1 className="text-xl font-bold text-cyber-text">
-            NEXTGEN SOC CERTIFICATE REGISTRY
+            PROMPT TO PRO CERTIFICATE REGISTRY
           </h1>
           <p className="text-[11px] text-cyber-text-muted">
             CRYPTOGRAPHIC PUBLIC VERIFICATION PORTAL
@@ -50,7 +50,7 @@ export default function CertificateVerifyPage() {
         {loading ? (
           <div className="text-center py-8 text-cyber-primary flex items-center justify-center gap-2">
             <span className="w-4 h-4 rounded-full border-2 border-cyber-primary border-t-transparent animate-spin" />
-            <span>QUERYING BLOCKCHAIN & SOC LEDGER...</span>
+            <span>VERIFYING CREDENTIAL IN OFFICIAL REGISTRY...</span>
           </div>
         ) : result?.valid ? (
           <div className="space-y-6">
@@ -60,7 +60,7 @@ export default function CertificateVerifyPage() {
               <div>
                 <div className="font-bold text-sm">AUTHENTIC & VERIFIED</div>
                 <div className="text-[11px] text-emerald-300">
-                  This credential is confirmed in the NextGen SOC master database.
+                  This credential is confirmed in the Prompt to Pro master registry.
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function CertificateVerifyPage() {
               </div>
               <div className="grid grid-cols-2 gap-3 pt-2 border-t border-cyber-border/40">
                 <div>
-                  <span className="text-cyber-text-dim block text-[10px]">CADET NAME:</span>
+                  <span className="text-cyber-text-dim block text-[10px]">PARTICIPANT NAME:</span>
                   <span className="text-cyber-text font-bold">{result.certificate?.participantName}</span>
                 </div>
                 <div>
@@ -85,8 +85,8 @@ export default function CertificateVerifyPage() {
                   <span className="text-cyber-text">{result.certificate?.department}</span>
                 </div>
                 <div>
-                  <span className="text-cyber-text-dim block text-[10px]">CREDIT TRACK:</span>
-                  <span className="text-emerald-400 font-bold">{result.certificate?.creditType}</span>
+                  <span className="text-cyber-text-dim block text-[10px]">ACADEMIC CREDIT:</span>
+                  <span className="text-emerald-400 font-bold">Non-CGPA Group 3</span>
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function CertificateVerifyPage() {
             <XCircle className="w-10 h-10 mx-auto" />
             <div className="font-bold text-sm">INVALID OR UNREGISTERED CREDENTIAL</div>
             <p className="text-[11px] text-cyber-text-muted">
-              The certificate ID &quot;{certId}&quot; could not be verified in the SOC ledger.
+              The certificate ID &quot;{certId}&quot; could not be verified in the Prompt to Pro registry.
             </p>
           </div>
         )}

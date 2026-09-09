@@ -10,11 +10,20 @@
 /build
 dist
 
-# Environment variables & secrets
+# Environment variables & secrets (strictly ignored)
 .env
-.env*.local
-.env.production
-.env.staging
+.env*
+.env.example
+*.env
+*.env.*
+*.pem
+*.key
+*.cert
+*.crt
+*secret*
+*credential*
+credentials.json
+service-account*.json
 
 # Logs
 npm-debug.log*

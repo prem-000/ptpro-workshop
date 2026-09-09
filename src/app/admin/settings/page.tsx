@@ -38,7 +38,7 @@ const DEFAULT_LANDING_COORDINATORS: LandingCoordinator[] = [
     role: 'Student Technical Lead',
     department: 'CSE / 3rd Year',
     phone: '+91 93812 76836',
-    whatsappUrl: 'https://wa.me/919381276836?text=Hi%20Sai%20Dhanush,%20I%20have%20a%20query%20about%20NextGen%20SOC%20Bootcamp.',
+    whatsappUrl: 'https://wa.me/919381276836?text=Hi%20Sai%20Dhanush,%20I%20have%20a%20query%20about%20Prompt%20to%20Pro%20Workshop.',
     callUrl: 'tel:+919381276836',
   },
   {
@@ -46,7 +46,7 @@ const DEFAULT_LANDING_COORDINATORS: LandingCoordinator[] = [
     role: 'Student Operations Lead',
     department: 'CSE / 3rd Year',
     phone: '+91 95153 92839',
-    whatsappUrl: 'https://wa.me/919515392839?text=Hi%20Rahul,%20I%20have%20a%20query%20about%20NextGen%20SOC%20Bootcamp.',
+    whatsappUrl: 'https://wa.me/919515392839?text=Hi%20Rahul,%20I%20have%20a%20query%20about%20Prompt%20to%20Pro%20Workshop.',
     callUrl: 'tel:+919515392839',
   },
 ];
@@ -67,11 +67,11 @@ export default function AdminSettingsPage() {
   );
 
   const [settings, setSettings] = useState({
-    eventName: 'NEXTGEN SOC',
-    tagline: 'Detect. Defend. Respond.',
-    dates: 'August 29 – 30, 2026',
-    venue: 'TIFAC Core Seminar Hall',
-    registrationFee: 300,
+    eventName: 'PROMPT TO PRO',
+    tagline: 'Learn. Build. Grow. Get Certified.',
+    dates: 'October 3 – 4, 2026',
+    venue: '9th Block Seminar Hall',
+    registrationFee: 200,
     totalCapacity: 200,
     registrationOpen: true,
     paymentUpiId: 'scrs@upi',
@@ -533,7 +533,7 @@ export default function AdminSettingsPage() {
 
           <div className="p-4 rounded-xl bg-cyber-bg/80 border border-cyber-border/80 space-y-4">
             <label className="text-cyber-text block font-bold text-xs">
-              MANAGE TOTAL BOOTCAMP SLOTS
+              MANAGE TOTAL WORKSHOP SLOTS
             </label>
 
             <div className="flex flex-wrap items-center gap-2">
@@ -623,7 +623,7 @@ export default function AdminSettingsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 p-3 rounded-lg bg-cyber-bg/90 border border-cyber-border text-center text-xs">
               <div className="p-2 rounded bg-cyber-surface/60 border border-cyber-border">
                 <span className="text-[10px] text-cyber-text-dim block font-bold">ORIGINAL REAL COUNT</span>
-                <span className="text-sm font-bold text-emerald-400">{realCount} Cadets</span>
+                <span className="text-sm font-bold text-emerald-400">{realCount} Participants</span>
                 <span className="text-[9px] text-cyber-text-muted block">Actual database records</span>
               </div>
               <div className="p-2 rounded bg-amber-950/40 border border-amber-500/30">
@@ -721,7 +721,7 @@ export default function AdminSettingsPage() {
             <span>WHATSAPP GROUP LINK & QR CODE</span>
           </div>
           <p className="text-[11px] text-cyber-text-muted">
-            Configure the WhatsApp group invite link and optional QR code image. This link appears in the top navbar and on the Cadet Portal after payment.
+            Configure the WhatsApp group invite link and optional QR code image. This link appears in the top navbar and on the Participant Portal after payment.
           </p>
 
           <div className="space-y-4">
@@ -742,7 +742,7 @@ export default function AdminSettingsPage() {
               label="WhatsApp Group QR Code Image (Optional)"
               value={settings.whatsappGroupQrUrl}
               onChange={(url) => setSettings((prev) => ({ ...prev, whatsappGroupQrUrl: url }))}
-              description="Upload a QR code image for joining the WhatsApp group. Displayed on the Cadet Portal alongside the direct invite link."
+              description="Upload a QR code image for joining the WhatsApp group. Displayed on the Participant Portal alongside the direct invite link."
               placeholder="https://... or click 'Direct Upload' above"
             />
           </div>
@@ -752,7 +752,7 @@ export default function AdminSettingsPage() {
         <div className="p-6 rounded-2xl cyber-glass border border-cyber-border space-y-4">
           <div className="text-sm font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
             <Clock className="w-4 h-4" />
-            <span>BOOTCAMP LAUNCH COUNTDOWN TARGET</span>
+            <span>WORKSHOP LAUNCH COUNTDOWN TARGET</span>
           </div>
 
           <div className="space-y-1">
@@ -763,7 +763,7 @@ export default function AdminSettingsPage() {
               onChange={(e) =>
                 setSettings((prev) => ({ ...prev, countdownTarget: e.target.value }))
               }
-              placeholder="e.g. 2026-08-29T09:00:00+05:30"
+              placeholder="e.g. 2026-10-03T09:00:00+05:30"
               className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text text-sm focus:outline-none focus:border-cyber-primary"
             />
             <p className="text-[11px] text-cyber-text-dim">
@@ -780,7 +780,7 @@ export default function AdminSettingsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-cyber-text block font-bold">Bootcamp Dates</label>
+              <label className="text-cyber-text block font-bold">Workshop Dates</label>
               <input
                 type="text"
                 value={settings.dates}

@@ -4,35 +4,65 @@
 
 @layer base {
   :root {
-    --background: 215 50% 4%;
+    /* Canvas */
+    --bg-base: #05070B;
+    --bg-deep: #080C12;
+    --bg-secondary: #0A0F17;
+
+    /* Elevated surfaces */
+    --surface-1: #0D131C;
+    --surface-2: #111923;
+    --surface-3: #16212D;
+
+    /* Borders */
+    --border-subtle: #1B2835;
+    --border-default: #263747;
+
+    /* Text */
+    --text-primary: #F1F5F9;
+    --text-secondary: #A8B3C2;
+    --text-muted: #718096;
+
+    /* AI accents */
+    --ai-purple: #7C5CFF;
+    --ai-purple-soft: #A78BFA;
+    --data-cyan: #38BDF8;
+    --data-cyan-soft: #7DD3FC;
+
+    /* Status */
+    --success: #34D399;
+    --warning: #EABF55;
+    --danger: #E06C75;
+
+    /* Academic accent - restrained */
+    --gold-muted: #C9A45A;
+
+    /* Radii */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    /* Standard Radix / Tailwind Tokens */
+    --background: 220 38% 3%;
     --foreground: 210 40% 98%;
-
-    --card: 217 33% 8%;
+    --card: 216 36% 8%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 217 33% 8%;
+    --popover: 216 36% 8%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 187 100% 50%;
-    --primary-foreground: 215 50% 4%;
-
-    --secondary: 206 87% 53%;
+    --primary: 252 100% 68%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 199 89% 60%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217 33% 14%;
     --muted-foreground: 215 20% 65%;
-
-    --accent: 187 100% 50%;
-    --accent-foreground: 215 50% 4%;
-
+    --accent: 252 100% 68%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217 33% 18%;
     --input: 217 33% 18%;
-    --ring: 187 100% 50%;
-
-    --radius: 0.5rem;
+    --ring: 252 100% 68%;
+    --radius: 1rem;
   }
 }
 
@@ -41,85 +71,135 @@
     @apply border-border;
   }
   body {
-    @apply bg-cyber-bg text-cyber-text font-sans antialiased selection:bg-cyber-primary/20 selection:text-cyber-primary;
-    background-color: #050A0F;
-    color: #E2E8F0;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
+    selection-background-color: rgba(124, 92, 255, 0.25);
   }
 }
 
-/* Custom Cyber Scrollbars */
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050A0F;
+  background: #05070B;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E2D40;
+  background: #1B2835;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00E5FF88;
+  background: #263747;
 }
 
-/* Cyber Grid Effect */
-.cyber-grid-bg {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+/* Dark AI Surfaces */
+.surface-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
 }
 
-.cyber-dots-bg {
-  background-image: radial-gradient(rgba(0, 229, 255, 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
+.surface-card-hover {
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
-/* Glassmorphism Surface */
-.cyber-glass {
-  background: rgba(15, 23, 32, 0.75);
+.surface-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: #263747;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+.ai-glass {
+  background: rgba(13, 19, 28, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(30, 45, 64, 0.8);
+  border: 1px solid rgba(27, 40, 53, 0.85);
+}
+
+.ai-glass-glow {
+  background: rgba(13, 19, 28, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  box-shadow: 0 0 35px -10px rgba(124, 92, 255, 0.15);
+}
+
+/* Backward-compatible classes mapped to new tokens */
+.cyber-glass {
+  background: rgba(13, 19, 28, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(27, 40, 53, 0.85);
 }
 
 .cyber-glass-glow {
-  background: rgba(15, 23, 32, 0.85);
+  background: rgba(13, 19, 28, 0.85);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 229, 255, 0.25);
-  box-shadow: 0 0 30px -10px rgba(0, 229, 255, 0.2);
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  box-shadow: 0 0 35px -10px rgba(124, 92, 255, 0.12);
 }
 
-/* Mobile Performance Optimization — Disable GPU-heavy blur on touch scroll */
 @media (max-width: 768px) {
+  .ai-glass,
+  .ai-glass-glow,
   .cyber-glass,
   .cyber-glass-glow {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    background: rgba(10, 16, 25, 0.96) !important;
+    background: rgba(10, 15, 23, 0.96) !important;
   }
 }
 
-/* Scanline Effect */
-.scanline-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0),
-    rgba(255,255,255,0) 50%,
-    rgba(0, 229, 255, 0.02) 50%,
-    rgba(0, 229, 255, 0.02)
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
+/* Subtle AI Grid and Dots */
+.ai-dot-pattern {
+  background-image: radial-gradient(rgba(124, 92, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.ai-grid-pattern {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(27, 40, 53, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 40, 53, 0.4) 1px, transparent 1px);
 }
 
 /* Monospace Numbers */
 .font-mono-numbers {
-  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-family: var(--font-jetbrains), monospace;
   font-feature-settings: 'tnum' on, 'zero' on;
+}
+
+/* SVG Flow Path Pulse Animation */
+@keyframes flowPulse {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flow-pulse-line {
+  stroke-dasharray: 8 16;
+  animation: flowPulse 2.5s linear infinite;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -76,9 +76,9 @@ export default function Step4Review({ form, onEditStep, isConfirmed, setIsConfir
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-cyber-text-muted pt-1">
           <div>
-            <span className="text-cyber-text-dim block text-[10px]">CREDIT TRACK ELIGIBILITY:</span>
+            <span className="text-cyber-text-dim block text-[10px]">ACADEMIC RECOGNITION:</span>
             <span className="text-emerald-400 font-bold text-xs">
-              {values.creditType === 'UE_CSE' ? 'PE — CSE (₹300)' : 'UE — Other Departments (₹300)'}
+              2 Non-CGPA Group 3 Certificates
             </span>
           </div>
           <div>
@@ -110,21 +110,21 @@ export default function Step4Review({ form, onEditStep, isConfirmed, setIsConfir
           <span className="flex items-center gap-1.5 text-xs">
             <FileText className="w-4 h-4 text-cyber-primary" /> REGISTRATION FEE BREAKDOWN
           </span>
-          <span className="text-[10px] text-cyber-text-dim">NEXTGEN SOC BOOTCAMP 2026</span>
+          <span className="text-[10px] text-cyber-text-dim">PROMPT TO PRO WORKSHOP 2026</span>
         </div>
 
         <div className="space-y-2 pt-1 border-t border-cyber-primary/20 text-xs">
           <div className="flex justify-between text-cyber-text-muted">
             <span>2-Day Hands-on Workshop Fee</span>
-            <span>₹300</span>
+            <span>₹200</span>
           </div>
           <div className="flex justify-between text-cyber-text-muted">
-            <span>SOC Lab Materials & Certificate Access</span>
+            <span>Workshop Materials & 2 Non-CGPA Group 3 Certificates</span>
             <span className="text-emerald-400 font-bold">INCLUDED</span>
           </div>
           <div className="flex justify-between text-cyber-text font-extrabold text-sm pt-2 border-t border-cyber-primary/30">
             <span>TOTAL AMOUNT PAYABLE ON NEXT STEP</span>
-            <span className="text-cyber-primary">₹300</span>
+            <span className="text-cyber-primary">₹200</span>
           </div>
         </div>
       </div>

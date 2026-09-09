@@ -31,7 +31,7 @@ export function isMasterAdminEmail(email?: string | null): boolean {
 }
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET || 'nextgen_soc_super_secure_secret_key_2026',
+  secret: process.env.NEXTAUTH_SECRET || 'prompt_to_pro_secure_auth_secret_key_2026',
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60, // 30 days

@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
       
       if (bookedCount >= totalCapacity) {
         return NextResponse.json(
-          { success: false, error: 'Payment rejected: The bootcamp has just reached maximum capacity.' },
+          { success: false, error: 'Payment rejected: The workshop has just reached maximum capacity.' },
           { status: 403 }
         );
       }

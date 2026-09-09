@@ -97,7 +97,7 @@ export default function AdminCertificatesPage() {
       <div className="p-6 rounded-2xl cyber-glass-glow border border-cyber-primary/40 space-y-4">
         <div className="text-sm font-bold text-cyber-primary uppercase tracking-wider flex items-center gap-2">
           <ShieldCheck className="w-4 h-4" />
-          <span>ISSUE VERIFIED DIGITAL CERTIFICATE</span>
+          <span>ISSUE VERIFIED NON-CGPA GROUP 3 CERTIFICATE</span>
         </div>
 
         <form onSubmit={handleIssueCertificate} className="flex flex-col sm:flex-row items-center gap-3">
@@ -106,7 +106,7 @@ export default function AdminCertificatesPage() {
             required
             value={issueRegId}
             onChange={(e) => setIssueRegId(e.target.value.toUpperCase())}
-            placeholder="Enter Registration ID (e.g. NGSOC-2026-XXXXX)"
+            placeholder="Enter Registration ID (e.g. PTP-2026-XXXXX)"
             className="flex-1 px-4 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-primary font-bold text-xs focus:outline-none focus:border-cyber-primary uppercase"
           />
 
@@ -137,7 +137,7 @@ export default function AdminCertificatesPage() {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search Cert ID or Cadet..."
+              placeholder="Search Cert ID or Participant..."
               className="w-full pl-9 pr-3.5 py-1.5 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text text-xs focus:outline-none focus:border-cyber-primary"
             />
           </div>
@@ -149,9 +149,9 @@ export default function AdminCertificatesPage() {
               <thead className="bg-cyber-bg-elevated border-b border-cyber-border text-cyber-text-dim text-[11px] uppercase">
                 <tr>
                   <th className="p-4">Certificate ID</th>
-                  <th className="p-4">Cadet Name</th>
+                  <th className="p-4">Participant Name</th>
                   <th className="p-4">Reg ID</th>
-                  <th className="p-4">Track</th>
+                  <th className="p-4">Credit Category</th>
                   <th className="p-4">Issued At</th>
                   <th className="p-4">Status</th>
                   <th className="p-4 text-right">Verification Link</th>
@@ -175,7 +175,7 @@ export default function AdminCertificatesPage() {
                         <div className="text-[10px] text-cyber-text-dim">{c.registration.registerNumber}</div>
                       </td>
                       <td className="p-4 text-cyber-text">{c.registration.registrationId}</td>
-                      <td className="p-4 text-emerald-400 font-bold">{c.registration.creditType}</td>
+                      <td className="p-4 text-emerald-400 font-bold">Non-CGPA Group 3</td>
                       <td className="p-4 text-cyber-text-dim">{formatDate(c.certificate.issuedAt)}</td>
                       <td className="p-4">
                         <span className="px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold">

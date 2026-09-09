@@ -10,12 +10,12 @@ interface Props {
 }
 
 const interestOptions = [
-  'SIEM & Log Parsing',
-  'Network Packet Analysis',
-  'EDR & Threat Hunting',
-  'Memory Forensics',
-  'Adversary Simulation',
-  'Incident Response & DFIR',
+  'Prompt Engineering & LLMs',
+  'Generative AI App Building',
+  'SQL & Relational Databases',
+  'Data Analytics & BI',
+  'Vector DBs & RAG Architecture',
+  'AI Career & Industry Pathways',
 ];
 
 export default function Step3Event({ form }: Props) {
@@ -46,7 +46,7 @@ export default function Step3Event({ form }: Props) {
           STEP 3 : TECHNICAL PREFERENCES & WORKSHOP PROFILE
         </h3>
         <p className="text-xs text-cyber-text-muted">
-          Helps us configure your dedicated SOC lab virtual range environment.
+          Helps us configure your dedicated workshop profile and project track environment.
         </p>
       </div>
 
@@ -54,15 +54,15 @@ export default function Step3Event({ form }: Props) {
       <div className="space-y-1.5">
         <label className="text-xs text-cyber-text flex items-center gap-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-cyber-primary" />
-          <span>Prior Cybersecurity Experience *</span>
+          <span>Prior Technical / AI & Data Experience *</span>
         </label>
         <select
           {...register('priorExperience')}
           className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text text-sm focus:outline-none focus:border-cyber-primary transition-colors"
         >
-          <option value="Beginner">Beginner (New to SOC & SIEM)</option>
-          <option value="Intermediate">Intermediate (Familiar with Wireshark / Linux / Networking)</option>
-          <option value="Advanced">Advanced (Participated in CTFs / Security Labs)</option>
+          <option value="Beginner">Beginner (New to Prompting & SQL)</option>
+          <option value="Intermediate">Intermediate (Familiar with Python / Databases / Analytics)</option>
+          <option value="Advanced">Advanced (Built GenAI Apps / Data Pipelines)</option>
         </select>
         {errors.priorExperience && (
           <p className="text-[11px] text-red-400">{errors.priorExperience.message}</p>
@@ -80,7 +80,7 @@ export default function Step3Event({ form }: Props) {
           className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text text-sm focus:outline-none focus:border-cyber-primary transition-colors"
         >
           <option value="Windows">Windows (10 / 11)</option>
-          <option value="Linux">Linux (Ubuntu / Kali / Fedora / Arch)</option>
+          <option value="Linux">Linux (Ubuntu / Fedora / Debian / Arch)</option>
           <option value="macOS">macOS (Apple Silicon / Intel)</option>
         </select>
         {errors.preferredOperatingSystem && (
@@ -92,7 +92,7 @@ export default function Step3Event({ form }: Props) {
       <div className="space-y-2">
         <label className="text-xs text-cyber-text flex items-center gap-1.5">
           <Target className="w-3.5 h-3.5 text-emerald-400" />
-          <span>Key SOC Areas of Interest (Select all that apply) *</span>
+          <span>Key AI & Data Areas of Interest (Select all that apply) *</span>
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
           {interestOptions.map((opt) => {

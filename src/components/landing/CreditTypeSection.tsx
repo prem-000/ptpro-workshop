@@ -3,46 +3,54 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Check, ArrowRight, Sparkles } from 'lucide-react';
-import { CyberButton } from '@/components/ui/CyberButton';
+import { Award, Check, ArrowRight, Sparkles, BookOpen } from 'lucide-react';
 
 export default function CreditTypeSection() {
+  const highlights = [
+    '2 Official Non-CGPA Group 3 Certificates issued upon completion',
+    'Hands-on GenAI application building with modern frameworks',
+    'SQL querying, relational modeling & real-world data analytics',
+    'Direct mentorship from industry alumni and School of Computing faculty',
+    'Open to all academic branches & all years (1st through 4th Year)',
+    'Portfolio project code and repository documentation to take home',
+  ];
+
   return (
-    <section id="tracks" className="py-16 sm:py-24 relative bg-cyber-bg-elevated/30 border-t border-cyber-border/60">
+    <section id="tracks" className="py-16 sm:py-24 relative border-t border-[#1B2835]/80">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyber-primary/40 text-cyber-primary text-xs font-mono">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>// 04. CREDIT & REGISTRATION</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D131C] border border-[#1B2835] text-[#A78BFA] text-xs font-sans font-medium">
+            <Sparkles className="w-3.5 h-3.5 text-[#7C5CFF]" />
+            <span>Academic Recognition</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-mono text-cyber-text">
-            CREDIT & DEPARTMENT INFO
+          <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#F1F5F9] tracking-tight">
+            Certifications & Eligibility
           </h2>
-          <p className="text-sm sm:text-base text-cyber-text-muted font-mono">
-            Course credit details and registration information. Content will be updated as finalized.
+          <p className="text-sm sm:text-base text-[#A8B3C2] font-sans">
+            Group 3 Non-CGPA accreditation details and student participation criteria.
           </p>
         </div>
 
-        {/* Single Unified Card */}
+        {/* Unified Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto rounded-2xl p-6 sm:p-8 cyber-glass-glow border-2 border-cyber-primary/50 shadow-cyber-card"
+          className="max-w-3xl mx-auto rounded-2xl p-6 sm:p-9 bg-[#0D131C] border border-[#1B2835] shadow-xl"
         >
           {/* Top Tag */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyber-primary/20 border border-cyber-primary text-cyber-primary font-mono text-xs font-bold">
-              <ShieldCheck className="w-4 h-4" />
-              <span>CYBER SECURITY WORKSHOP</span>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#7C5CFF]/15 border border-[#7C5CFF]/30 text-[#A78BFA] font-sans text-xs font-bold">
+              <Award className="w-4 h-4" />
+              <span>2 Non-CGPA Group 3 Certificates</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-mono text-emerald-400 bg-emerald-950/40 px-2.5 py-1 rounded border border-emerald-500/30">
-                200 TOTAL SLOTS
+            <div className="flex items-center gap-2.5">
+              <span className="text-xs font-mono text-[#38BDF8] bg-[#38BDF8]/10 px-2.5 py-1 rounded border border-[#38BDF8]/20">
+                200 SEATS
               </span>
-              <span className="text-xs font-mono text-cyber-primary bg-cyan-950/40 px-2.5 py-1 rounded border border-cyber-primary/30">
+              <span className="text-xs font-mono text-[#34D399] bg-emerald-950/40 px-2.5 py-1 rounded border border-emerald-500/30">
                 ALL DEPARTMENTS
               </span>
             </div>
@@ -50,62 +58,45 @@ export default function CreditTypeSection() {
 
           {/* Title & Fee */}
           <div className="space-y-3 mb-6">
-            <h3 className="text-2xl sm:text-3xl font-bold font-mono text-cyber-text">
-              NEXTGEN SOC BOOTCAMP
+            <h3 className="text-2xl sm:text-3xl font-serif font-black text-[#F1F5F9]">
+              Prompt to Pro Workshop
             </h3>
-            <p className="text-xs sm:text-sm font-mono text-cyber-text-muted">
-              Open to all 3rd & 4th year students across all departments.
+            <p className="text-xs sm:text-sm font-sans text-[#A8B3C2]">
+              Organized by Kalasalingam Academy of Research and Education in association with School of Computing & AKCE-KLU-KARE Alumni.
             </p>
 
-            <div className="flex items-baseline gap-2 pt-2 pb-4 border-b border-cyber-border/60">
-              <span className="text-4xl sm:text-5xl font-extrabold font-mono text-cyber-primary">₹300</span>
-              <span className="text-xs font-mono text-cyber-text-dim">/ registration fee</span>
+            <div className="flex items-baseline gap-2 pt-2 pb-4 border-b border-[#1B2835]">
+              <span className="text-4xl sm:text-5xl font-bold font-sans text-white">₹200</span>
+              <span className="text-xs font-sans text-[#718096]">/ flat registration fee</span>
             </div>
           </div>
 
-          {/* Credit Details */}
-          <div className="mb-6 p-4 rounded-xl bg-cyber-surface/60 border border-cyber-border/60">
-            <div className="text-[10px] font-mono font-bold text-cyber-primary uppercase tracking-widest mb-2">
-              CREDIT INFORMATION
+          {/* Non-CGPA Detail Box */}
+          <div className="mb-6 p-4 rounded-xl bg-[#111923] border border-[#1B2835]">
+            <div className="text-[10px] font-mono font-bold text-[#A78BFA] uppercase tracking-wider mb-2">
+              ACADEMIC CERTIFICATION
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-mono text-cyber-text-muted">
-              <div className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-cyber-primary shrink-0 mt-0.5" />
-                <span><strong className="text-cyber-text">CSE Students:</strong> Program Elective (PE) Credit</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-cyber-primary shrink-0 mt-0.5" />
-                <span><strong className="text-cyber-text">All Others:</strong> University Elective (UE) Credit</span>
-              </div>
-              <div className="flex items-start gap-2.5 sm:col-span-2">
-                <Check className="w-4 h-4 text-cyber-primary shrink-0 mt-0.5" />
-                <span><strong className="text-cyber-text">Subject:</strong> Cyber Security</span>
-              </div>
-            </div>
+            <p className="text-xs sm:text-sm font-sans text-[#A8B3C2] leading-relaxed">
+              Participants receive <strong className="text-white">2 Non-CGPA Group 3 Certificates</strong> formally recognized under university activity credits. Certificates are verifiable online through the SCRS Participant Portal.
+            </p>
           </div>
 
-          {/* What's Included */}
-          <ul className="space-y-3 text-xs sm:text-sm font-mono text-cyber-text-muted mb-8">
-            {[
-              'Full 2-Day SOC Operations & Hands-on Lab Access',
-              'SIEM Telemetry & Log Analysis Training',
-              'Live Ransomware Incident Response Simulation',
-              'Participation Certificate on Completion',
-              'Course Credit Eligibility (PE for CSE / UE for Others)',
-            ].map((feat, idx) => (
+          {/* What's Included List */}
+          <ul className="space-y-3 text-xs sm:text-sm font-sans text-[#A8B3C2] mb-8">
+            {highlights.map((feat, idx) => (
               <li key={idx} className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-cyber-primary shrink-0 mt-0.5" />
+                <Check className="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" />
                 <span>{feat}</span>
               </li>
             ))}
           </ul>
 
-          {/* Single Register Button */}
+          {/* Register Button */}
           <Link href="/register" className="block">
-            <CyberButton variant="primary" glow size="lg" className="w-full gap-2">
-              <span>REGISTER NOW — ₹300</span>
+            <button className="w-full py-4 rounded-xl bg-gradient-to-r from-[#7C5CFF] to-[#6366F1] hover:from-[#6D4AE8] hover:to-[#4F46E5] text-white font-sans text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#7C5CFF]/20 transition-all">
+              <span>Register Now — ₹200</span>
               <ArrowRight className="w-4 h-4" />
-            </CyberButton>
+            </button>
           </Link>
         </motion.div>
       </div>

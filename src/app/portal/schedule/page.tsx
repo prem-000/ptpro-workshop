@@ -19,10 +19,10 @@ export default function PortalSchedulePage() {
           <div>
             <h1 className="text-xl font-bold font-mono text-cyber-text flex items-center gap-2">
               <Calendar className="w-5 h-5 text-cyber-primary" />
-              <span>BOOTCAMP CURRICULUM TIMETABLE</span>
+              <span>WORKSHOP CURRICULUM TIMETABLE</span>
             </h1>
             <p className="text-xs font-mono text-cyber-text-muted">
-              INTERACTIVE 2-DAY SOC RANGE SCHEDULE
+              INTERACTIVE 2-DAY WORKSHOP SCHEDULE
             </p>
           </div>
         </div>

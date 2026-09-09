@@ -82,8 +82,8 @@ export default function StatusCard({ payment, registrationId }: Props) {
       {/* Verified State Info */}
       {isVerified && (
         <div className="space-y-3">
-          <div className="p-3 rounded-xl bg-emerald-950/20 border border-emerald-500/30 text-emerald-400 leading-relaxed text-xs">
-            ✓ Your payment has been verified by the SOC operations team. Your bootcamp seat is officially confirmed.
+          <div className="p-3.5 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-emerald-400 leading-relaxed text-xs">
+            ✓ Your payment has been verified by the organizing committee. Your workshop seat is officially confirmed.
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-cyber-text-muted">

@@ -142,9 +142,9 @@ export default function AdminAnnouncementsPage() {
                   onChange={(e) => setAudience(e.target.value as any)}
                   className="w-full px-3 py-2 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-text text-xs focus:outline-none focus:border-cyber-primary"
                 >
-                  <option value="all">All Cadets</option>
-                  <option value="UE_CSE">PE — CSE Only</option>
-                  <option value="PEOPLE_OTHER">PEOPLE Other Only</option>
+                  <option value="all">All Participants</option>
+                  <option value="UE_CSE">Non-CGPA Group 3 (CSE Only)</option>
+                  <option value="PEOPLE_OTHER">Non-CGPA Group 3 (Other Depts Only)</option>
                 </select>
               </div>
             </div>

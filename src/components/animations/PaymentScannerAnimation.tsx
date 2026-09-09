@@ -14,11 +14,11 @@ interface Props {
 }
 
 const steps = [
-  { id: 1, label: 'UPLOAD COMPLETE', desc: 'Secure payload received by SOC gateway', icon: CheckCircle2 },
+  { id: 1, label: 'UPLOAD COMPLETE', desc: 'Secure payload received by gateway', icon: CheckCircle2 },
   { id: 2, label: 'READING TRANSACTION DETAILS', desc: 'Running optical character stream analysis', icon: Cpu },
   { id: 3, label: 'EXTRACTING UTR & BANK REFERENCE', desc: 'Parsing 12-digit payment reference identifier', icon: Database },
   { id: 4, label: 'CHECKING AMOUNT & DUPLICATES', desc: 'Validating fee integrity & duplicate prevention locks', icon: ShieldCheck },
-  { id: 5, label: 'SUBMITTING FOR ADMIN REVIEW', desc: 'Routing to SOC Command Center queue', icon: Clock },
+  { id: 5, label: 'SUBMITTING FOR ADMIN REVIEW', desc: 'Routing to Admin verification queue', icon: Clock },
 ];
 
 export default function PaymentScannerAnimation({ onComplete, ocrDetails }: Props) {
@@ -50,7 +50,7 @@ export default function PaymentScannerAnimation({ onComplete, ocrDetails }: Prop
       </div>
 
       <h3 className="text-xl font-bold tracking-wider text-cyber-primary font-mono mb-2">
-        SOC PAYMENT INTELLIGENCE
+        WORKSHOP PAYMENT VERIFICATION
       </h3>
       <p className="text-xs text-cyber-text-muted mb-8 font-mono">
         SYSTEM INTEGRITY CHECK // PIPELINE ACTIVE

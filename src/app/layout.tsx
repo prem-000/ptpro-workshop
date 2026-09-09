@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Providers from './providers';
 import CyberBackground from '@/components/animations/CyberBackground';
@@ -14,14 +14,19 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains',
 });
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-display',
+});
+
 export const metadata: Metadata = {
-  title: 'NextGen SOC | Security Operations Centre Analyst Bootcamp',
+  title: 'Prompt to Pro | A 2-Day Hands-On Workshop',
   description:
-    'Join the NextGen Security Operations Centre Analyst Bootcamp — a two-day hands-on cybersecurity experience focused on SOC operations, threat detection, investigation, and incident response.',
+    'Prompt to Pro — A 2-Day Hands-On Workshop: GenAI, AI Application Building, SQL & Data Skills. Kalasalingam Academy of Research and Education in association with School of Computing & AKCE-KLU-KARE Alumni.',
   openGraph: {
-    title: 'NextGen SOC | Security Operations Centre Analyst Bootcamp',
+    title: 'Prompt to Pro | A 2-Day Hands-On Workshop',
     description:
-      'Detect. Defend. Respond. Hands-on 2-day SIEM, EDR, and Ransomware War Room Cybersecurity Bootcamp.',
+      'Learn · Build · Grow · Get Certified. 2-Day Hands-On Workshop on GenAI & Data Analytics at 9th Block Seminar Hall, KARE.',
     type: 'website',
   },
 };
@@ -33,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-cyber-bg text-cyber-text antialiased font-sans`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} min-h-screen bg-cyber-bg text-cyber-text antialiased font-sans`}>
         <Providers>
           <CyberBackground />
           <div className="relative z-10 flex min-h-screen flex-col">

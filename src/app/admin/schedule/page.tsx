@@ -99,7 +99,7 @@ export default function AdminSchedulePage() {
         <div>
           <h1 className="text-2xl font-bold text-cyber-text tracking-wide flex items-center gap-2">
             <Calendar className="w-6 h-6 text-cyber-primary" />
-            <span>BOOTCAMP CURRICULUM & TIMETABLE</span>
+            <span>WORKSHOP CURRICULUM & TIMETABLE</span>
           </h1>
           <p className="text-xs text-cyber-text-muted mt-1">
             MANAGE 2-DAY LIVE LAB SESSIONS & WORKSHOPS

@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useState, Suspense } from 'react';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Shield, Lock, CheckCircle2, AlertTriangle } from 'lucide-react';
-import { CyberButton } from '@/components/ui/CyberButton';
+import { Lock, CheckCircle2, AlertTriangle, LogOut, ArrowRight } from 'lucide-react';
 import { BrandLogo } from '@/components/ui/BrandLogo';
 import Link from 'next/link';
 
 function LoginContent() {
   const { data: session } = useSession();
+  const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
   const [loading, setLoading] = useState(false);
@@ -19,35 +19,46 @@ function LoginContent() {
   if (session?.user) {
     const isAdmin = (session.user as any).role === 'admin';
     return (
-      <div className="flex-1 flex items-center justify-center p-4">
+      <div className="flex-1 flex items-center justify-center p-4 min-h-[calc(100vh-5rem)]">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="w-full max-w-md cyber-glass-glow rounded-2xl p-8 border border-cyber-primary/40 text-center space-y-6"
+          className="w-full max-w-md rounded-3xl p-8 bg-[#0D131C] border border-[#1B2835] text-center space-y-6 shadow-2xl"
         >
-          <div className="w-16 h-16 rounded-full bg-cyber-primary/10 border border-cyber-primary/40 mx-auto flex items-center justify-center text-cyber-primary">
+          <div className="w-16 h-16 rounded-2xl bg-[#7C5CFF]/10 border border-[#7C5CFF]/30 mx-auto flex items-center justify-center text-[#A78BFA]">
             <CheckCircle2 className="w-8 h-8" />
           </div>
-          <div>
-            <h2 className="text-xl font-bold font-mono text-cyber-text">
-              AUTHENTICATED AS {session.user.name?.toUpperCase()}
+          <div className="space-y-1.5">
+            <div className="inline-block px-3 py-1 text-[11px] font-mono font-semibold tracking-wider rounded-full border border-[#7C5CFF]/40 bg-[#7C5CFF]/10 text-[#A78BFA]">
+              ROLE: {isAdmin ? 'ADMINISTRATOR' : 'PARTICIPANT'}
+            </div>
+            <h2 className="text-xl font-serif font-bold text-white">
+              Welcome, {session.user.name}
             </h2>
-            <p className="text-xs font-mono text-cyber-text-muted mt-1">
+            <p className="text-xs text-slate-400 font-sans">
               {session.user.email}
             </p>
           </div>
 
-          <div className="pt-4 space-y-3">
+          <div className="pt-2 space-y-3">
             <Link href={isAdmin ? '/admin' : '/portal'} className="block">
-              <CyberButton variant="primary" glow size="lg" className="w-full">
-                {isAdmin ? 'ENTER ADMIN COMMAND CENTER' : 'PROCEED TO PARTICIPANT PORTAL'}
-              </CyberButton>
+              <button className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-[#7C5CFF] to-[#6366F1] text-white font-semibold text-sm shadow-lg shadow-[#7C5CFF]/20 hover:shadow-xl transition-all flex items-center justify-center gap-2">
+                <span>{isAdmin ? 'Enter Admin Console' : 'Open Participant Portal'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </Link>
             <Link href="/register" className="block">
-              <CyberButton variant="secondary" size="md" className="w-full">
-                BOOTCAMP REGISTRATION FORM
-              </CyberButton>
+              <button className="w-full py-3 px-5 rounded-xl bg-[#111923] border border-[#1B2835] hover:border-[#38BDF8]/40 text-slate-200 text-sm font-medium transition-colors">
+                Workshop Registration Form
+              </button>
             </Link>
+            <button
+              onClick={() => signOut({ callbackUrl: '/login' })}
+              className="w-full pt-3 text-xs text-slate-400 hover:text-red-400 transition-colors flex items-center justify-center gap-1.5 font-sans"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Log out / Switch Account</span>
+            </button>
           </div>
         </motion.div>
       </div>
@@ -73,20 +84,23 @@ function LoginContent() {
   };
 
   return (
-    <div className="flex-1 flex items-center justify-center p-4 min-h-[calc(100vh-4rem)] font-mono">
+    <div className="flex-1 flex items-center justify-center p-4 min-h-[calc(100vh-5rem)]">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full max-w-md cyber-glass-glow rounded-2xl p-6 sm:p-8 border border-cyber-border shadow-cyber-card space-y-6"
+        transition={{ duration: 0.4 }}
+        className="w-full max-w-md rounded-3xl p-7 sm:p-9 bg-[#0D131C] border border-[#1B2835] shadow-2xl space-y-6 relative overflow-hidden"
       >
+        {/* Subtle Ambient Radial */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C5CFF]/5 blur-3xl pointer-events-none rounded-full" />
+
         {/* Header with Official Logo */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-3 relative z-10">
           <div className="flex justify-center">
             <BrandLogo variant="hero" withLink={false} />
           </div>
-          <p className="text-xs text-cyber-text-muted">
-            SIGN IN WITH UNIVERSITY GOOGLE ACCOUNT TO REGISTER
+          <p className="text-xs text-slate-400 font-sans">
+            Sign in to access your Prompt to Pro participant portal or registration
           </p>
         </div>
 
@@ -99,11 +113,11 @@ function LoginContent() {
         )}
 
         {/* Google Sign In Button */}
-        <div className="space-y-4 pt-1">
+        <div className="space-y-4 pt-1 relative z-10">
           <button
             onClick={handleGoogleLogin}
             disabled={loading}
-            className="w-full flex items-center justify-center gap-3 py-3.5 px-4 rounded-xl bg-cyber-surface-elevated hover:bg-cyber-surface-highlight border-2 border-cyber-border hover:border-cyber-primary text-cyber-text font-mono text-sm font-bold transition-all shadow-cyber-glow-sm disabled:opacity-50 hover:shadow-cyber-glow-cyan"
+            className="w-full flex items-center justify-center gap-3 py-3.5 px-4 rounded-xl bg-[#111923] hover:bg-[#151f2c] border border-[#1B2835] hover:border-[#38BDF8]/50 text-white text-sm font-medium transition-all shadow-md disabled:opacity-50"
           >
             <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
               <path
@@ -124,24 +138,21 @@ function LoginContent() {
               />
             </svg>
             {loading ? (
-              <span>CONNECTING TO GOOGLE...</span>
+              <span>Connecting to Google...</span>
             ) : (
-              <span>CONTINUE WITH GOOGLE (@klu.ac.in)</span>
+              <span>Continue with Google (@klu.ac.in)</span>
             )}
           </button>
         </div>
 
         {/* Security Notices */}
-        <div className="p-3.5 rounded-xl bg-cyber-bg border border-cyber-border/80 text-[11px] text-cyber-text-dim text-center leading-relaxed space-y-2">
-          <div className="text-cyber-text font-bold flex items-center justify-center gap-1.5">
-            <Lock className="w-3.5 h-3.5 text-cyber-primary" />
-            <span>INSTITUTIONAL ACCOUNT REQUIRED</span>
+        <div className="p-3.5 rounded-2xl bg-[#080C12] border border-[#1B2835] text-xs text-slate-400 text-center leading-relaxed space-y-1.5 relative z-10 font-sans">
+          <div className="text-slate-300 font-medium flex items-center justify-center gap-1.5">
+            <Lock className="w-3.5 h-3.5 text-[#38BDF8]" />
+            <span>Institutional Account Verification</span>
           </div>
-          <p>
-            Please select your <strong>@klu.ac.in</strong> email when prompted by Google.
-          </p>
-          <p className="text-amber-400/90 font-medium">
-            ⚠️ Enter name in the registration wizard strictly matching your SIS login.
+          <p className="text-[11px]">
+            Please sign in using your official <strong className="text-white">@klu.ac.in</strong> student/faculty Google account.
           </p>
         </div>
       </motion.div>
@@ -154,7 +165,7 @@ export default function LoginPage() {
     <Suspense
       fallback={
         <div className="flex-1 flex items-center justify-center p-4">
-          <div className="font-mono text-cyber-primary text-xs">LOADING LOGIN GATEWAY...</div>
+          <div className="font-mono text-[#38BDF8] text-xs">Loading login gateway...</div>
         </div>
       }
     >
@@ -162,3 +173,4 @@ export default function LoginPage() {
     </Suspense>
   );
 }
+

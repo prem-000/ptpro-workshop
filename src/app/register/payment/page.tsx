@@ -184,7 +184,7 @@ function PaymentContent() {
   };
 
   // UPI deep link
-  const upiDeepLink = `upi://pay?pa=${upiId}&pn=NEXTGEN%20SOC%20BOOTCAMP&am=${feeAmount}&cu=INR&tn=NGSOC-${registrationId || 'CADET'}`;
+  const upiDeepLink = `upi://pay?pa=${upiId}&pn=PROMPT%20TO%20PRO%20WORKSHOP&am=${feeAmount}&cu=INR&tn=PTP-${registrationId || 'PARTICIPANT'}`;
 
   return (
     <div className="flex-1 py-8 px-4">

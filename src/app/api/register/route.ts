@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: 'You have already registered for this bootcamp.',
+          error: 'You have already registered for this workshop.',
           registrationId: existingUserReg[0].registrationId,
         },
         { status: 409 }
@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
 
     if (counts.total >= totalCapacity) {
       return NextResponse.json(
-        { success: false, error: 'The bootcamp has reached maximum capacity.' },
+        { success: false, error: 'The workshop has reached maximum capacity.' },
         { status: 400 }
       );
     }

@@ -4,62 +4,62 @@ import React from 'react';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
-import { CyberButton } from '@/components/ui/CyberButton';
-import { Shield, ArrowRight, Sparkles, Terminal, CheckCircle2 } from 'lucide-react';
+import { Sparkles, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 export default function RegistrationCtaSection() {
   const { data: session } = useSession();
   const isAdmin = (session?.user as any)?.role === 'admin';
 
   return (
-    <section id="register" className="py-16 sm:py-24 relative overflow-hidden bg-cyber-bg-elevated/40 border-t border-cyber-border/60">
+    <section id="register" className="py-20 sm:py-28 relative overflow-hidden bg-[#080C12] border-t border-[#1B2835]">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 50 }}
+          initial={{ opacity: 0, scale: 0.96, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, type: 'spring', bounce: 0.3 }}
-          className="relative rounded-3xl p-8 sm:p-14 cyber-glass-glow border-2 border-cyber-primary/50 text-center max-w-4xl mx-auto space-y-6 overflow-hidden shadow-cyber-card font-mono"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6 }}
+          className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 bg-gradient-to-b from-[#0D131C] to-[#111923] border border-[#1B2835] text-center max-w-4xl mx-auto space-y-6 overflow-hidden shadow-2xl"
         >
-          {/* Ambient Glow */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-cyber-primary/10 via-transparent to-cyber-secondary/10 pointer-events-none" />
+          {/* Subtle Ambient Background Gradient */}
+          <div className="absolute inset-0 bg-radial from-[#7C5CFF]/10 via-transparent to-transparent pointer-events-none" />
 
-          <div className="relative z-10 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyber-primary/40 text-cyber-primary text-xs">
-              <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-              <span>// 09. FINAL ADMISSIONS CALL</span>
+          <div className="relative z-10 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#7C5CFF]/10 border border-[#7C5CFF]/30 text-[#A78BFA] text-xs font-medium">
+              <Sparkles className="w-3.5 h-3.5 text-[#7C5CFF]" />
+              <span>Limited Seat Availability</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-cyber-text tracking-tight leading-tight">
-              READY TO ENTER THE <span className="text-cyber-primary">SOC?</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+              Transform Your AI & Data Journey
             </h2>
 
-            <p className="text-xs sm:text-sm text-cyber-text-muted max-w-xl mx-auto leading-relaxed font-sans">
-              Secure your seat in the NextGen SOC Analyst Bootcamp. Only 200 seats available — August 29–30, 2026 at TIFAC Core Seminar Hall. Registration fee: ₹300.
+            <p className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed font-sans">
+              Secure your seat in Prompt to Pro. Join us on October 3–4, 2026 at 9th Block Seminar Hall. Learn, build practical applications, and earn 2 Non-CGPA Group 3 Certificates.
             </p>
           </div>
 
-          <div className="relative z-10 pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={session ? (isAdmin ? '/admin' : '/portal') : '/register'} className="w-full sm:w-auto">
-              <CyberButton size="lg" variant="primary" glow className="w-full sm:w-auto gap-3 text-base px-10 py-4">
-                <span>{session ? (isAdmin ? 'COMMAND CENTER' : 'CADET PORTAL') : 'REGISTER NOW'}</span>
-                <ArrowRight className="w-5 h-5" />
-              </CyberButton>
+          <div className="relative z-10 pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href={session ? (isAdmin ? '/admin' : '/portal') : '/register'}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-[#7C5CFF] to-[#6366F1] text-white font-semibold text-base shadow-lg shadow-[#7C5CFF]/25 hover:shadow-xl hover:shadow-[#7C5CFF]/35 hover:-translate-y-0.5 transition-all duration-200"
+            >
+              <span>{session ? (isAdmin ? 'Go to Admin Console' : 'Open Participant Portal') : 'Register Now (₹200)'}</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
           {/* Guarantee Pills */}
-          <div className="relative z-10 pt-6 flex flex-wrap items-center justify-center gap-6 text-[11px] text-cyber-text-dim border-t border-cyber-border/40">
-            <span className="flex items-center gap-1.5 text-cyber-text">
-              <CheckCircle2 className="w-3.5 h-3.5 text-cyber-primary" /> Verified Google Auth
+          <div className="relative z-10 pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 border-t border-[#1B2835]/80 font-sans">
+            <span className="flex items-center gap-1.5 text-slate-300">
+              <CheckCircle2 className="w-4 h-4 text-[#7C5CFF]" /> 2 Non-CGPA Group 3 Certificates
             </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5 text-cyber-text">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Instant Seat Allocation
+            <span className="text-slate-600 hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5 text-slate-300">
+              <CheckCircle2 className="w-4 h-4 text-[#38BDF8]" /> Flat ₹200 Registration Fee
             </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5 text-cyber-text">
-              <CheckCircle2 className="w-3.5 h-3.5 text-cyber-secondary" /> QR Certificate Included
+            <span className="text-slate-600 hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5 text-slate-300">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Instant QR Pass Generation
             </span>
           </div>
         </motion.div>
@@ -67,3 +67,4 @@ export default function RegistrationCtaSection() {
     </section>
   );
 }
+
